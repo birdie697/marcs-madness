@@ -21,10 +21,13 @@ class BracketContainer extends React.Component {
         team53: '', team54: '', team55: '', team56: '',
         team57: '', team58: '', team59: '', team60: '',
         team61: '', team62: '', team63: '', team64: '',
-        selectedGame1Winner: ''
+        selectedGame1Winner: '',
+        selectedGame2Winner: '',
+        selectedGame33Winner: ''
       }
-      this.handleGame1Selection = this.handleGame1Selection.bind(this)
-      this.handleGame2Selection = this.handleGame2Selection.bind(this)
+      this.handleGame1Selection  = this.handleGame1Selection.bind(this)
+      this.handleGame2Selection  = this.handleGame2Selection.bind(this)
+      this.handleGame33Selection = this.handleGame33Selection.bind(this)
     }
 
     handleGame1Selection(event) {
@@ -33,6 +36,10 @@ class BracketContainer extends React.Component {
 
     handleGame2Selection(event) {
       this.setState({ selectedGame2Winner: event.target.value })
+    }
+
+    handleGame33Selection(event) {
+      this.setState({ selectedGame33Winner: event.target.value })
     }
 
     componentDidMount(){
@@ -134,6 +141,13 @@ class BracketContainer extends React.Component {
           name="game2"
           selectedGameWinner={this.state.selectedGame2Winner}
           handleOptionChange={this.handleGame2Selection}
+        />
+        <Bracket
+          homeTeam={this.state.selectedGame1Winner}
+          awayTeam={this.state.selectedGame2Winner}
+          name="game33"
+          selectedGameWinner={this.state.selectedGame33Winner}
+          handleOptionChange={this.handleGame33Selection}
         />
       </div>
     )
