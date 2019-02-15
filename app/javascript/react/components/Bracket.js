@@ -2,7 +2,6 @@ import React from 'react';
 
 
 const Bracket = props => {
-  console.log(`props.selectedGame1Winner ${props.selectedGameWinner}`)
 
   return(
     <div>
@@ -31,10 +30,8 @@ const Bracket = props => {
             {props.awayTeam}
           </label>
         </div>
-        <div>
-          <h4>You've selected {props.selectedGameWinner} to win!</h4>
-        </div>
       </form>
+      <h4>Winner:  {props.selectedGameWinner}</h4>
     </div>
   )
 }

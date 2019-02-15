@@ -24,10 +24,15 @@ class BracketContainer extends React.Component {
         selectedGame1Winner: ''
       }
       this.handleGame1Selection = this.handleGame1Selection.bind(this)
+      this.handleGame2Selection = this.handleGame2Selection.bind(this)
     }
 
     handleGame1Selection(event) {
       this.setState({ selectedGame1Winner: event.target.value })
+    }
+
+    handleGame2Selection(event) {
+      this.setState({ selectedGame2Winner: event.target.value })
     }
 
     componentDidMount(){
@@ -116,13 +121,19 @@ class BracketContainer extends React.Component {
   render () {
     return(
       <div>
-        <h4>Render me from BracketContainer</h4>
         <Bracket
           homeTeam={this.state.team1}
           awayTeam={this.state.team2}
           name="game1"
           selectedGameWinner={this.state.selectedGame1Winner}
           handleOptionChange={this.handleGame1Selection}
+        />
+        <Bracket
+          homeTeam={this.state.team3}
+          awayTeam={this.state.team4}
+          name="game2"
+          selectedGameWinner={this.state.selectedGame2Winner}
+          handleOptionChange={this.handleGame2Selection}
         />
       </div>
     )
