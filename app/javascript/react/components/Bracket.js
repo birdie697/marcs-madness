@@ -4,9 +4,9 @@ import React from 'react';
 const Bracket = props => {
 
   return(
-    <div>
+    <div className='gameBlock'>
       <form>
-        <div>
+        <div className='teamBlock'>
           <label>
             <input
               type='radio'
@@ -18,7 +18,8 @@ const Bracket = props => {
             {props.homeTeam}
           </label>
         </div>
-        <div>
+
+        <div className='teamBlock'>
           <label>
             <input
               type='radio'
@@ -31,7 +32,6 @@ const Bracket = props => {
           </label>
         </div>
       </form>
-      <h4>Winner:  {props.selectedGameWinner}</h4>
     </div>
   )
 }
