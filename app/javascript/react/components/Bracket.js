@@ -4,8 +4,8 @@ import React from 'react';
 const Bracket = props => {
 
   return(
-    <div className='gameBlock'>
-      <form>
+    <form>
+      <div className={props.round}>
         <div className='teamBlock'>
           <label>
             <input
@@ -18,7 +18,6 @@ const Bracket = props => {
             {props.homeTeam}
           </label>
         </div>
-
         <div className='teamBlock'>
           <label>
             <input
@@ -31,8 +30,8 @@ const Bracket = props => {
             {props.awayTeam}
           </label>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   )
 }
 

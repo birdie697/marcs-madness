@@ -128,27 +128,38 @@ class BracketContainer extends React.Component {
   render () {
     return(
       <div>
-        <Bracket
-          homeTeam={this.state.team1}
-          awayTeam={this.state.team2}
-          name="game1"
-          selectedGameWinner={this.state.selectedGame1Winner}
-          handleOptionChange={this.handleGame1Selection}
-        />
-        <Bracket
-          homeTeam={this.state.team3}
-          awayTeam={this.state.team4}
-          name="game2"
-          selectedGameWinner={this.state.selectedGame2Winner}
-          handleOptionChange={this.handleGame2Selection}
-        />
-        <Bracket
-          homeTeam={this.state.selectedGame1Winner}
-          awayTeam={this.state.selectedGame2Winner}
-          name="game33"
-          selectedGameWinner={this.state.selectedGame33Winner}
-          handleOptionChange={this.handleGame33Selection}
-        />
+        <div className="small-2 columns">
+          <Bracket
+            homeTeam={this.state.team1}
+            awayTeam={this.state.team2}
+            name="game1"
+            round="round1"
+            selectedGameWinner={this.state.selectedGame1Winner}
+            handleOptionChange={this.handleGame1Selection}
+          />
+          <Bracket
+            homeTeam={this.state.team3}
+            awayTeam={this.state.team4}
+            name="game2"
+            round="round1"
+            selectedGameWinner={this.state.selectedGame2Winner}
+            handleOptionChange={this.handleGame2Selection}
+          />
+        </div>
+        <div className="small-2 columns">
+          <Bracket
+            homeTeam={this.state.selectedGame1Winner}
+            awayTeam={this.state.selectedGame2Winner}
+            name="game33"
+            round="round2"
+            selectedGameWinner={this.state.selectedGame33Winner}
+            handleOptionChange={this.handleGame33Selection}
+          />
+        </div>
+        <div className="small-8 columns">
+          <h1>fill me up, butter cup</h1>
+          <h4>small-2, small-2, small-8</h4>
+        </div>
       </div>
     )
   }
