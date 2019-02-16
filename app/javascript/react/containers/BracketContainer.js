@@ -23,11 +23,35 @@ class BracketContainer extends React.Component {
         team61: '', team62: '', team63: '', team64: '',
         selectedGame1Winner: '',
         selectedGame2Winner: '',
-        selectedGame33Winner: ''
+        selectedGame3Winner: '',
+        selectedGame4Winner: '',
+        selectedGame5Winner: '',
+        selectedGame6Winner: '',
+        selectedGame7Winner: '',
+        selectedGame8Winner: '',
+        selectedGame33Winner: '',
+        selectedGame34Winner: '',
+        selectedGame35Winner: '',
+        selectedGame36Winner: '',
+        selectedGame49Winner: '',
+        selectedGame50Winner: '',
+        selectedGame57Winner: ''
       }
-      this.handleGame1Selection  = this.handleGame1Selection.bind(this)
-      this.handleGame2Selection  = this.handleGame2Selection.bind(this)
+      this.handleGame1Selection = this.handleGame1Selection.bind(this)
+      this.handleGame2Selection = this.handleGame2Selection.bind(this)
+      this.handleGame3Selection = this.handleGame3Selection.bind(this)
+      this.handleGame4Selection = this.handleGame4Selection.bind(this)
+      this.handleGame5Selection = this.handleGame5Selection.bind(this)
+      this.handleGame6Selection = this.handleGame6Selection.bind(this)
+      this.handleGame7Selection = this.handleGame7Selection.bind(this)
+      this.handleGame8Selection = this.handleGame8Selection.bind(this)
       this.handleGame33Selection = this.handleGame33Selection.bind(this)
+      this.handleGame34Selection = this.handleGame34Selection.bind(this)
+      this.handleGame35Selection = this.handleGame35Selection.bind(this)
+      this.handleGame36Selection = this.handleGame36Selection.bind(this)
+      this.handleGame49Selection = this.handleGame49Selection.bind(this)
+      this.handleGame50Selection = this.handleGame50Selection.bind(this)
+      this.handleGame57Selection = this.handleGame57Selection.bind(this)
     }
 
     handleGame1Selection(event) {
@@ -38,8 +62,56 @@ class BracketContainer extends React.Component {
       this.setState({ selectedGame2Winner: event.target.value })
     }
 
+    handleGame3Selection(event) {
+      this.setState({ selectedGame3Winner: event.target.value })
+    }
+
+    handleGame4Selection(event) {
+      this.setState({ selectedGame4Winner: event.target.value })
+    }
+
+    handleGame5Selection(event) {
+      this.setState({ selectedGame5Winner: event.target.value})
+    }
+
+    handleGame6Selection(event) {
+      this.setState({ selectedGame6Winner: event.target.value })
+    }
+
+    handleGame7Selection(event) {
+      this.setState({ selectedGame7Winner: event.target.value })
+    }
+
+    handleGame8Selection(event) {
+      this.setState({ selectedGame8Winner: event.target.value })
+    }
+
     handleGame33Selection(event) {
       this.setState({ selectedGame33Winner: event.target.value })
+    }
+
+    handleGame34Selection(event) {
+      this.setState({ selectedGame34Winner: event.target.value })
+    }
+
+    handleGame35Selection(event) {
+      this.setState({ selectedGame35Winner: event.target.value })
+    }
+
+    handleGame36Selection(event) {
+      this.setState({ selectedGame36Winner: event.target.value })
+    }
+
+    handleGame49Selection(event) {
+      this.setState({ selectedGame49Winner: event.target.value })
+    }
+
+    handleGame50Selection(event) {
+      this.setState({ selectedGame50Winner: event.target.value })
+    }
+
+    handleGame57Selection(event) {
+      this.setState({ selectedGame57Winner: event.target.value })
     }
 
     componentDidMount(){
@@ -128,7 +200,7 @@ class BracketContainer extends React.Component {
   render () {
     return(
       <div>
-        <div className="small-2 columns">
+        <div className="small-3 columns">
           <Bracket
             homeTeam={this.state.team1}
             awayTeam={this.state.team2}
@@ -145,8 +217,56 @@ class BracketContainer extends React.Component {
             selectedGameWinner={this.state.selectedGame2Winner}
             handleOptionChange={this.handleGame2Selection}
           />
+          <Bracket
+            homeTeam={this.state.team5}
+            awayTeam={this.state.team6}
+            name="game3"
+            round="round1"
+            selectedGameWinner={this.state.selectedGame3Winner}
+            handleOptionChange={this.handleGame3Selection}
+          />
+          <Bracket
+            homeTeam={this.state.team7}
+            awayTeam={this.state.team8}
+            name="game4"
+            round="round1"
+            selectedGameWinner={this.state.selectedGame4Winner}
+            handleOptionChange={this.handleGame4Selection}
+          />
+          <Bracket
+            homeTeam={this.state.team9}
+            awayTeam={this.state.team10}
+            name="game5"
+            round="round1"
+            selectedGameWinner={this.state.selectedGame5Winner}
+            handleOptionChange={this.handleGame5Selection}
+          />
+          <Bracket
+            homeTeam={this.state.team11}
+            awayTeam={this.state.team12}
+            name="game6"
+            round="round1"
+            selectedGameWinner={this.state.selectedGame6Winner}
+            handleOptionChange={this.handleGame6Selection}
+          />
+          <Bracket
+            homeTeam={this.state.team13}
+            awayTeam={this.state.team14}
+            name="game7"
+            round="round1"
+            selectedGameWinner={this.state.selectedGame7Winner}
+            handleOptionChange={this.handleGame7Selection}
+          />
+          <Bracket
+            homeTeam={this.state.team15}
+            awayTeam={this.state.team16}
+            name="game8"
+            round="round1"
+            selectedGameWinner={this.state.selectedGame8Winner}
+            handleOptionChange={this.handleGame8Selection}
+          />
         </div>
-        <div className="small-2 columns">
+        <div className="small-3 columns">
           <Bracket
             homeTeam={this.state.selectedGame1Winner}
             awayTeam={this.state.selectedGame2Winner}
@@ -155,10 +275,58 @@ class BracketContainer extends React.Component {
             selectedGameWinner={this.state.selectedGame33Winner}
             handleOptionChange={this.handleGame33Selection}
           />
+          <Bracket
+            homeTeam={this.state.selectedGame3Winner}
+            awayTeam={this.state.selectedGame4Winner}
+            name="game34"
+            round="round2"
+            selectedGameWinner={this.state.selectedGame34Winner}
+            handleOptionChange={this.handleGame34Selection}
+          />
+          <Bracket
+            homeTeam={this.state.selectedGame5Winner}
+            awayTeam={this.state.selectedGame6Winner}
+            name="game35"
+            round="round2"
+            selectedGameWinner={this.state.selectedGame35Winner}
+            handleOptionChange={this.handleGame35Selection}
+          />
+          <Bracket
+            homeTeam={this.state.selectedGame7Winner}
+            awayTeam={this.state.selectedGame8Winner}
+            name="game36"
+            round="round2"
+            selectedGameWinner={this.state.selectedGame36Winner}
+            handleOptionChange={this.handleGame36Selection}
+          />
         </div>
-        <div className="small-8 columns">
-          <h1>fill me up, butter cup</h1>
-          <h4>small-2, small-2, small-8</h4>
+        <div className="small-3 columns">
+          <Bracket
+            homeTeam={this.state.selectedGame33Winner}
+            awayTeam={this.state.selectedGame34Winner}
+            name="game49"
+            round="round3"
+            selectedGameWinner={this.state.selectedGame49Winner}
+            handleOptionChange={this.handleGame49Selection}
+          />
+          <Bracket
+            homeTeam={this.state.selectedGame35Winner}
+            awayTeam={this.state.selectedGame36Winner}
+            name="game50"
+            round="round3"
+            selectedGameWinner={this.state.selectedGame50Winner}
+            handleOptionChange={this.handleGame50Selection}
+          />
+        </div>
+        <div className="small-3 columns">
+          <Bracket
+            homeTeam={this.state.selectedGame49Winner}
+            awayTeam={this.state.selectedGame50Winner}
+            name="game57"
+            round="round4"
+            selectedGameWinner={this.state.selectedGame57Winner}
+            handleOptionChange={this.handleGame57Selection}
+          />
         </div>
       </div>
     )

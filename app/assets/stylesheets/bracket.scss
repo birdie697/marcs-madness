@@ -1,26 +1,32 @@
-// .gameBlock {
-//   margin: 25px 10px;
-// }
+input[type="radio"]{
+  margin-right: 5px !important;
+}
 
 .teamBlock {
   background-color: #FFFFFF;
   margin: 5px 0px;
   padding: 2px 10px;
   border: 1px solid #000000;
-  width: 175px;
+  width: 275px;
   height: 25px;
 }
 
-input[type="radio"]{
-  margin-right: 5px !important;
-}
-
 .round1 {
-  background-color: green;
+  background-color: RebeccaPurple;
   margin: 25px 10px;
 }
 
 .round2 {
-  background-color: purple;
-  margin: 75px 10px;
+  background-color: CornFlowerBlue;
+  margin: 90px 10px;
+}
+
+.round3 {
+  background-color: DarkSeaGreen;
+  margin: 200px 10px;
+}
+
+.round4 {
+  background-color: DarkGreen;
+  margin: 325px 10px;
 }
