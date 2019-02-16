@@ -12,7 +12,7 @@ const Bracket = props => {
               type='radio'
               name={props.name}
               value={props.homeTeam}
-              checked={props.selectedGameWinner === props.homeTeam}
+              checked={props.selectedGameWinner === props.homeTeam && props.selectedGameWinner !== ''}
               onChange={props.handleOptionChange}
             />
             {props.homeTeam}
@@ -24,7 +24,7 @@ const Bracket = props => {
               type='radio'
               name={props.name}
               value={props.awayTeam}
-              checked={props.selectedGameWinner === props.awayTeam}
+              checked={props.selectedGameWinner === props.awayTeam && props.selectedGameWinner !== ''}
               onChange={props.handleOptionChange}
             />
             {props.awayTeam}
