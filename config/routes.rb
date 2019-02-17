@@ -9,4 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only: [:index]
+
+  get '*path', to: 'users#index'
+
 end
