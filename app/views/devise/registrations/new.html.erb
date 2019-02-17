@@ -5,7 +5,7 @@
     <%= devise_error_messages! %>
 
     <div>
-      <%= f.label :first_name, 'First Name', :class => 'devise-field' %><br />
+      <%= f.label :first_name, 'First Name', :class => 'deviseField' %><br />
       <em>(Will Not Display On Website)</em>
       <div>
         <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
@@ -13,7 +13,7 @@
     </div>
 
     <div>
-      <%= f.label :last_name, 'Last Name', :class => 'devise-field' %><br />
+      <%= f.label :last_name, 'Last Name', :class => 'deviseField' %><br />
       <em>(Will Not Display On Website)</em>
       <div>
         <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
@@ -21,7 +21,7 @@
     </div>
 
     <div>
-      <%= f.label :user_name, 'User Name', :class => 'devise-field' %><br />
+      <%= f.label :user_name, 'User Name', :class => 'deviseField' %><br />
       <em>(Displayed On Website)</em>
       <div>
         <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %>
@@ -29,7 +29,7 @@
     </div>
 
     <div>
-      <%= f.label :email, 'Email', :class => 'devise-field' %><br />
+      <%= f.label :email, 'Email', :class => 'deviseField' %><br />
       <em>(Required - Used to Sign In)</em>
       <div>
         <%= f.email_field :email, autocomplete: "email" %>
@@ -37,7 +37,7 @@
     </div>
 
     <div>
-      <%= f.label :password, 'Password', :class => 'devise-field' %><br />
+      <%= f.label :password, 'Password', :class => 'deviseField' %><br />
       <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %>
@@ -45,7 +45,7 @@
     </div>
 
     <div>
-      <%= f.label :password_confirmation, 'Password Confirmation', :class => 'devise-field' %><br />
+      <%= f.label :password_confirmation, 'Password Confirmation', :class => 'deviseField' %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 
