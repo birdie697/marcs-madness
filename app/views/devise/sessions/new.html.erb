@@ -1,14 +1,14 @@
-<div class="devisePage">
+<div class="textBox">
   <h2>Log in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div>
-      <%= f.label :email, 'Email', :class => 'deviseField' %><br />
+      <%= f.label :email, 'Email', :class => 'textField' %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
 
     <div>
-      <%= f.label :password, 'Password', :class => 'deviseField' %><br />
+      <%= f.label :password, 'Password', :class => 'textField' %><br />
       <%= f.password_field :password, autocomplete: "current-password" %>
     </div>
 

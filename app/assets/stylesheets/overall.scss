@@ -2,7 +2,7 @@ body {
   background-color: #CBCBCB;
 }
 
-.welcomePage {
+.textBox {
   background-color: #FFFFFF;
   font-family: 'Cinzel', serif;
   border-radius: 40px;
@@ -14,7 +14,24 @@ body {
   border: 10px solid #C3734B; //basketball orange
 }
 
-.welcomePage h1 {
+.textBox h1 {
   font-family: 'Cinzel', serif;
   text-align: center;
+}
+
+.textBox h2 {
+  font-family: 'Cinzel', serif;
+  text-align: center;
+}
+
+.textBox h3 {
+  font-family: 'Cinzel', serif;
+}
+
+.textBox p {
+  font-family: 'Cinzel', serif;
+}
+
+.textField {
+    font-size: 2em;
 }
