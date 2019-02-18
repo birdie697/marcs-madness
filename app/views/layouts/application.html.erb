@@ -15,7 +15,11 @@
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="/">MarcsMadness</a></h1>
+        <%- if current_user -%>
+          <h1><a href="/users">Home</a></h1>
+        <%- else -%>
+          <h1><a href="/users">MarcsMadness</a></h1>
+        <%- end -%>
       </li>
     </ul>
 
