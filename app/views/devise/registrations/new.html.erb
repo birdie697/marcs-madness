@@ -1,11 +1,11 @@
-<div class="devisePage">
+<div class="textBox">
   <h2>Sign up</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
     <div>
-      <%= f.label :first_name, 'First Name', :class => 'deviseField' %><br />
+      <%= f.label :first_name, 'First Name', :class => 'textField' %><br />
       <em>(Will Not Display On Website)</em>
       <div>
         <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
@@ -13,7 +13,7 @@
     </div>
 
     <div>
-      <%= f.label :last_name, 'Last Name', :class => 'deviseField' %><br />
+      <%= f.label :last_name, 'Last Name', :class => 'textField' %><br />
       <em>(Will Not Display On Website)</em>
       <div>
         <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
@@ -21,7 +21,7 @@
     </div>
 
     <div>
-      <%= f.label :user_name, 'User Name', :class => 'deviseField' %><br />
+      <%= f.label :user_name, 'User Name', :class => 'textField' %><br />
       <em>(Displayed On Website)</em>
       <div>
         <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %>
@@ -29,7 +29,7 @@
     </div>
 
     <div>
-      <%= f.label :email, 'Email', :class => 'deviseField' %><br />
+      <%= f.label :email, 'Email', :class => 'textField' %><br />
       <em>(Required - Used to Sign In)</em>
       <div>
         <%= f.email_field :email, autocomplete: "email" %>
@@ -37,7 +37,7 @@
     </div>
 
     <div>
-      <%= f.label :password, 'Password', :class => 'deviseField' %><br />
+      <%= f.label :password, 'Password', :class => 'textField' %><br />
       <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %>
@@ -45,7 +45,7 @@
     </div>
 
     <div>
-      <%= f.label :password_confirmation, 'Password Confirmation', :class => 'deviseField' %><br />
+      <%= f.label :password_confirmation, 'Password Confirmation', :class => 'textField' %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 

@@ -1,4 +1,4 @@
-<div class="devisePage"
+<div class="textBox"
   <h2>Change your password</h2>
 
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
@@ -6,7 +6,7 @@
     <%= f.hidden_field :reset_password_token %>
 
     <div>
-      <%= f.label :password, "New password", :class => 'deviseField' %><br />
+      <%= f.label :password, "New password", :class => 'textField' %><br />
       <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em><br />
       <% end %>
@@ -14,7 +14,7 @@
     </div>
 
     <div>
-      <%= f.label :password_confirmation, "Confirm new password", :class => 'deviseField' %><br />
+      <%= f.label :password_confirmation, "Confirm new password", :class => 'textField' %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
