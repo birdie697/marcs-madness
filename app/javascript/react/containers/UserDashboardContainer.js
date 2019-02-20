@@ -1,4 +1,5 @@
 import React from 'react';
+import BracketContainer from './BracketContainer';
 
 class UserDashboardContainer extends React.Component {
   constructor(props) {
@@ -40,6 +41,8 @@ class UserDashboardContainer extends React.Component {
           <div className=  'small-6 columns'>
             <div className='textBox columnBox'>
               <h2>Your Brackets</h2>
+              <BracketContainer
+              />
             </div>
           </div>
           <div className='small-6 columns'>
