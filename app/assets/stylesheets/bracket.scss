@@ -2,6 +2,18 @@ input[type="radio"]{
   margin-right: 5px !important;
 }
 
+.regionTitle {
+  background-color: #FFF8DC;
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 0%;
+  border:  2px solid;
+}
+
+.regionTitle h1 {
+  font-family: 'Cinzel', serif;
+}
+
 .teamBlock {
   background-color: #FFFFFF;
   margin: 5px 0px;
@@ -12,21 +24,81 @@ input[type="radio"]{
 }
 
 .round1 {
-  background-color: RebeccaPurple;
   margin: 25px 10px;
 }
 
 .round2 {
-  background-color: CornFlowerBlue;
   margin: 90px 10px;
 }
 
 .round3 {
-  background-color: DarkSeaGreen;
   margin: 200px 10px;
 }
 
 .round4 {
-  background-color: DarkGreen;
   margin: 325px 10px;
+}
+
+.round1 .south {
+  background-color: #8B0000;  //DarkRed
+}
+
+.round2 .south {
+  background-color: #CD5C5C;  //InidianRed
+}
+
+.round3 .south {
+  background-color: #FA8072;  //Salmon
+}
+
+.round4 .south {
+  background-color: #FFA07A;  //LightSalmon
+}
+
+.round1 .west {
+  background-color: #006400;  //DarkGreen
+}
+
+.round2 .west {
+  background-color: #228B22;  //ForestGreen
+}
+
+.round3 .west {
+  background-color: #7CFC00;  //LawnGreen
+}
+
+.round4 .west {
+  background-color: #98FB98;  //PaleGreen
+}
+
+.round1 .east {
+  background-color: #191970;  //MidnightBlue
+}
+
+.round2 .east {
+  background-color: #4682B4;  //SteelBlue
+}
+
+.round3 .east {
+  background-color: #6495ED;  //CornflowerBlue
+}
+
+.round4 .east {
+  background-color: #ADD8E6;  //LightBlue
+}
+
+.round1 .midwest {
+  background-color: #8B4513;  //SaddleBrown
+}
+
+.round2 .midwest {
+  background-color: #A0522D;  //Sienna
+}
+
+.round3 .midwest {
+  background-color: #CD853F;  //Peru
+}
+
+.round4 .midwest {
+  background-color: #DEB887;  //BurlyWood
 }
