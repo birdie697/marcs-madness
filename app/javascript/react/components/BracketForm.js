@@ -1,5 +1,7 @@
 import React from 'react';
 import Bracket from '../components/Bracket';
+import FinalFourBracket from '../components/FinalFourBracket';
+import WinnerBracket from '../components/WinnerBracket';
 
 class BracketForm extends React.Component {
   constructor(props) {
@@ -1105,6 +1107,48 @@ class BracketForm extends React.Component {
         <div className="row fullWidth">
           <div className="regionTitle">
             <h1>THE FINAL FOUR</h1>
+          </div>
+        </div>
+
+        <div className="row fullWidth">
+          <div className="small-4 columns">
+            <FinalFourBracket
+              homeTeam={this.state.selectedGame57Winner}
+              awayTeam={this.state.selectedGame58Winner}
+              name="game61"
+              round="finalFour"
+              regionHome="south"
+              regionAway="west"
+              selectedGameWinner={this.state.selectedGame61Winner}
+              handleOptionChange={this.handleGame61Selection}
+            />
+            <FinalFourBracket
+              homeTeam={this.state.selectedGame59Winner}
+              awayTeam={this.state.selectedGame60Winner}
+              name="game62"
+              round="finalFour"
+              regionHome="east"
+              regionAway="midwest"
+              selectedGameWinner={this.state.selectedGame62Winner}
+              handleOptionChange={this.handleGame62Selection}
+            />
+          </div>
+          <div className="small-4 columns">
+            <FinalFourBracket
+              homeTeam={this.state.selectedGame61Winner}
+              awayTeam={this.state.selectedGame62Winner}
+              name="game63"
+              round="finals"
+              selectedGameWinner={this.state.selectedGame63Winner}
+              handleOptionChange={this.handleGame63Selection}
+            />
+          </div>
+          <div className="small-4 columns">
+            <WinnerBracket
+              round="finals"
+              region="finalist"
+              winner={this.state.selectedGame63Winner}
+            />
           </div>
         </div>
 
