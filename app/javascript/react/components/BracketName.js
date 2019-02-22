@@ -3,7 +3,7 @@ import React from 'react';
 const BracketName = props => {
 
   return (
-    <div className="row fullWidth regionTitle headSpace">
+    <div className="row fullWidth bannerTitle headSpace">
       <div className="small-6 columns">
         <h2>
           Bracket Name:
