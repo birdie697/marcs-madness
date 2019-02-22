@@ -1,7 +1,7 @@
 import React from 'react';
 import Bracket from '../components/Bracket';
-import FinalFourBracket from '../components/FinalFourBracket';
-import WinnerBracket from '../components/WinnerBracket';
+import BracketFinalFour from '../components/BracketFinalFour';
+import BracketWinner from '../components/BracketWinner';
 import BracketName from '../components/BracketName';
 
 class BracketForm extends React.Component {
@@ -520,6 +520,9 @@ class BracketForm extends React.Component {
     }
 
   render () {
+    console.log(`bracket name: ${this.state.newBracketName}`)
+    console.log(`game 1 winner is: ${this.state.selectedGame1Winner}`)
+    console.log(`game 63 winner is ${this.state.selectedGame63Winner}`)
     return(
       <div>
 
@@ -1145,7 +1148,7 @@ class BracketForm extends React.Component {
 
         <div className="row fullWidth">
           <div className="small-4 columns">
-            <FinalFourBracket
+            <BracketFinalFour
               homeTeam={this.state.selectedGame57Winner}
               awayTeam={this.state.selectedGame58Winner}
               name="game61"
@@ -1155,7 +1158,7 @@ class BracketForm extends React.Component {
               selectedGameWinner={this.state.selectedGame61Winner}
               handleOptionChange={this.handleGame61Selection}
             />
-            <FinalFourBracket
+            <BracketFinalFour
               homeTeam={this.state.selectedGame59Winner}
               awayTeam={this.state.selectedGame60Winner}
               name="game62"
@@ -1167,7 +1170,7 @@ class BracketForm extends React.Component {
             />
           </div>
           <div className="small-4 columns">
-            <FinalFourBracket
+            <BracketFinalFour
               homeTeam={this.state.selectedGame61Winner}
               awayTeam={this.state.selectedGame62Winner}
               name="game63"
@@ -1177,7 +1180,7 @@ class BracketForm extends React.Component {
             />
           </div>
           <div className="small-4 columns">
-            <WinnerBracket
+            <BracketWinner
               round="finals"
               region="finalist"
               winner={this.state.selectedGame63Winner}

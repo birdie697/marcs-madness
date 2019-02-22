@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WinnerBracket = props => {
+const BracketWinner = props => {
   return(
     <div className={props.round}>
       <h5>Winner</h5>
@@ -12,4 +12,4 @@ const WinnerBracket = props => {
 
 };
 
-export default WinnerBracket;
+export default BracketWinner;
