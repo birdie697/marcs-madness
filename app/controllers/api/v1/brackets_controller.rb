@@ -3,7 +3,21 @@ class Api::V1::BracketsController < ApplicationController
 
   def create
 
-    binding.pry
+    bracket = Bracket.new(bracket_params)
+
+    if bracket.save
+      render json: {
+        title: "SUCCESS!",
+        text: "Your bracket has been saved",
+        type: "success"
+      }
+    else
+      render json: {
+        title: "DAMN IT!",
+        text: bracket.errors.full_message.join(", "),
+        type: "error"
+      }
+    end
 
   end
 

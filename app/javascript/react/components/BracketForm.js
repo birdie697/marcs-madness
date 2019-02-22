@@ -1,4 +1,6 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
+import swal from 'sweetalert';
 import Bracket from '../components/Bracket';
 import BracketFinalFour from '../components/BracketFinalFour';
 import BracketWinner from '../components/BracketWinner';
@@ -500,6 +502,7 @@ class BracketForm extends React.Component {
         })
         .then(response => response.json())
         .then(body => {
+          swal(body.title, body.text, body.type)
           browserHistory.push(`/users`)
         })
         .catch(error => console.error(`Error in fetch: ${error.messaage}`));
