@@ -2,6 +2,7 @@ import React from 'react';
 import Bracket from '../components/Bracket';
 import FinalFourBracket from '../components/FinalFourBracket';
 import WinnerBracket from '../components/WinnerBracket';
+import BracketName from '../components/BracketName';
 
 class BracketForm extends React.Component {
   constructor(props) {
@@ -86,7 +87,9 @@ class BracketForm extends React.Component {
         selectedGame61Winner: '',
         selectedGame62Winner: '',
         selectedGame63Winner: '',
-        selectedGame64Winner: ''
+        selectedGame64Winner: '',
+        newBracketName: '',
+        bracketScore: 0
       };
       this.handleGame1Selection = this.handleGame1Selection.bind(this);
       this.handleGame2Selection = this.handleGame2Selection.bind(this);
@@ -151,6 +154,7 @@ class BracketForm extends React.Component {
       this.handleGame61Selection = this.handleGame61Selection.bind(this);
       this.handleGame62Selection = this.handleGame62Selection.bind(this);
       this.handleGame63Selection = this.handleGame63Selection.bind(this);
+      this.handleNewBracketName = this.handleNewBracketName.bind(this);
     }
 
     handleGame1Selection(event) {
@@ -409,6 +413,10 @@ class BracketForm extends React.Component {
       this.setState({ selectedGame63Winner: event.target.value })
     }
 
+    handleNewBracketName(event) {
+      this.setState({ newBracketName: event.target.value })
+    }
+
     componentDidMount(){
       fetch('api/v1/teams')
       .then(response => {
@@ -490,11 +498,36 @@ class BracketForm extends React.Component {
         });
       })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
+
+    fetch('api/v1/users')
+      .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`
+              erorr = new Error(errorMessage);
+          throw(error);
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+        this.setState({
+          currentUserId: body.id,
+          currentUserName: body.user_name
+        });
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
 
   render () {
     return(
       <div>
+
+        <BracketName
+          newBracketName={this.state.newBracketName}
+          handleNewBracketName={this.handleNewBracketName}
+          bracketScore={this.state.bracketScore}
+        />
 
         <div className="row fullWidth">
           <div className="regionTitle">

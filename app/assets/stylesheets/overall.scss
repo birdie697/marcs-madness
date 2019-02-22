@@ -9,6 +9,10 @@ body {
   max-width: initial;
 }
 
+.headSpace {
+  margin: 25px 0px;
+}
+
 .textBox {
   background-color: #FFFFFF;
   font-family: 'Cinzel', serif;
@@ -62,4 +66,8 @@ body {
 
 .textField {
     font-size: 2em;
+}
+
+.headSpace h2 {
+  font-family: 'Cinzel', serif;
 }
