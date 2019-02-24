@@ -55,6 +55,10 @@ body {
   font-family: 'Cinzel', serif;
 }
 
+.textBox h5 {
+  font-family: 'Cinzel', serif;
+}
+
 .textBox h6 {
   font-family: 'Cinzel', serif;
 }
@@ -84,4 +88,9 @@ body {
   margin-left: 30%;
   margin-right: 30%;
   border:  2px solid;
+}
+
+.lookLikeALink {
+  color: #4582BF;  //link color
+  font-weight: 700;
 }

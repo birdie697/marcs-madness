@@ -10,8 +10,6 @@ class BracketForm extends React.Component {
   constructor(props) {
     super(props)
       this.state = {
-        currentUserId: '',
-        currentUserName: '',
         team1: '',   team2: '', team3: '',  team4: '',
         team5: '',   team6: '', team7: '',  team8: '',
         team9: '',  team10: '', team11: '', team12: '',
@@ -425,7 +423,7 @@ class BracketForm extends React.Component {
     handleFormSubmit(event) {
       event.preventDefault();
       let formPayload = {
-        user_id:  this.state.currentUserId,
+        user_id:  parseInt(`${window.currentUser.id}`),
         name: this.state.newBracketName,
         game_1_winner: this.state.selectedGame1Winner,
         game_2_winner: this.state.selectedGame2Winner,
@@ -492,7 +490,7 @@ class BracketForm extends React.Component {
         game_63_winner: this.state.selectedGame63Winner
       }
       let jsonPayload = JSON.stringify(formPayload);
-      fetch(`api/v1/brackets`, {
+      fetch(`/api/v1/brackets`, {
         method: 'POST',
         body: jsonPayload,
         headers: {
@@ -503,13 +501,13 @@ class BracketForm extends React.Component {
         .then(response => response.json())
         .then(body => {
           swal(body.title, body.text, body.type)
-          browserHistory.push(`/users`)
+          browserHistory.push(`/users/${window.currentUser.id}`)
         })
         .catch(error => console.error(`Error in fetch: ${error.messaage}`));
     }
 
     componentDidMount(){
-      fetch('api/v1/teams')
+      fetch('/api/v1/teams')
       .then(response => {
         if (response.ok) {
           return response;
@@ -590,24 +588,24 @@ class BracketForm extends React.Component {
       })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
 
-    fetch('api/v1/users')
-      .then(response => {
-        if (response.ok) {
-          return response;
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`
-              erorr = new Error(errorMessage);
-          throw(error);
-        }
-      })
-      .then(response => response.json())
-      .then(body => {
-        this.setState({
-          currentUserId: body.id,
-          currentUserName: body.user_name
-        });
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`));
+    // fetch('/api/v1/users')
+    //   .then(response => {
+    //     if (response.ok) {
+    //       return response;
+    //     } else {
+    //       let errorMessage = `${response.status} (${response.statusText})`
+    //           erorr = new Error(errorMessage);
+    //       throw(error);
+    //     }
+    //   })
+    //   .then(response => response.json())
+    //   .then(body => {
+    //     this.setState({
+    //       currentUserId: body.id,
+    //       currentUserName: body.user_name
+    //     });
+    //   })
+    //   .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
 
   render () {
