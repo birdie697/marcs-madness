@@ -8,8 +8,8 @@ export const App = (props) => {
   return (
     <Router history={browserHistory}>
       <Route path='/' component={NavBar}>
-        <Route path="users" component={UserDashboardContainer} />
-        <Route path="bracket-form" component={BracketForm} />
+        <Route path='/users/:id' component={UserDashboardContainer} />
+        <Route path='/users/:id/brackets/new' component={BracketForm} />
       </Route>
     </Router>
   )

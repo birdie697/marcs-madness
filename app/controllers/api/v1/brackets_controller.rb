@@ -1,5 +1,11 @@
 class Api::V1::BracketsController < ApplicationController
 
+  def index
+    user = User.find(params[:user_id])
+    render json: user.brackets.order(created_at: :asc)
+  end
+
+
 
   def create
 

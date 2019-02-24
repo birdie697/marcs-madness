@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
 before_action :authenticate_user!
 
-  def index
-    render "users/index"
+  def show
+    render "users/show"
   end
 
 end
