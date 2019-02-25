@@ -79,7 +79,7 @@ body {
 .bannerTitleStyleButton {
   color: #000000;
   font-size: 2em;
-  background-color: #FFF8DC;
+  background-color: #FFF8DC;  //Cornsilk
   font-family: 'Cinzel', serif;
   text-align: center;
   margin-top: 2%;
@@ -93,4 +93,14 @@ body {
 .lookLikeALink {
   color: #4582BF;  //link color
   font-weight: 700;
+}
+
+.error {
+  font-family: 'Cinzel', serif;
+  background-color: #FF0000;  //Red
+  border: solid 2px #FFFFFF;
+  color: #FFFFFF;  //white
+  width: 40%;
+  margin: 20px 30%;
+  padding: 10px;
 }
