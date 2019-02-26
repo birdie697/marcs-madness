@@ -6,7 +6,8 @@ import BracketFinalFour from '../components/BracketFinalFour';
 import BracketWinner from '../components/BracketWinner';
 import BracketName from '../components/BracketName';
 import { validateBracketNameNotBlank,
-         validateBracketNameNoDuplicate } from '../lib/validators';
+         validateBracketNameNoDuplicate,
+         validateGameSelection } from '../lib/validators';
 
 class BracketForm extends React.Component {
   constructor(props) {
@@ -421,6 +422,8 @@ class BracketForm extends React.Component {
     }
 
     handleNewBracketName(event) {
+      validateBracketNameNotBlank(this.state.newBracketName, this)
+      validateBracketNameNoDuplicate(this.state.newBracketName, this.state.bracketNames, this)
       this.setState({ newBracketName: event.target.value })
     }
 
@@ -428,7 +431,70 @@ class BracketForm extends React.Component {
       event.preventDefault();
       if (
         validateBracketNameNotBlank(this.state.newBracketName, this) &&
-        validateBracketNameNoDuplicate(this.state.newBracketName, this.state.bracketNames, this)
+        validateBracketNameNoDuplicate(this.state.newBracketName, this.state.bracketNames, this) &&
+        validateGameSelection(this.state.selectedGame1Winner, 'game1', 'Game 1', this) &&
+        validateGameSelection(this.state.selectedGame2Winner, 'game2', 'Game 2', this) &&
+        validateGameSelection(this.state.selectedGame3Winner, 'game3', 'Game 3', this) &&
+        validateGameSelection(this.state.selectedGame4Winner, 'game4', 'Game 4', this) &&
+        validateGameSelection(this.state.selectedGame5Winner, 'game5', 'Game 5', this) &&
+        validateGameSelection(this.state.selectedGame6Winner, 'game6', 'Game 6', this) &&
+        validateGameSelection(this.state.selectedGame7Winner, 'game7', 'Game 7', this) &&
+        validateGameSelection(this.state.selectedGame8Winner, 'game8', 'Game 8', this) &&
+        validateGameSelection(this.state.selectedGame9Winner, 'game9', 'Game 9', this) &&
+        validateGameSelection(this.state.selectedGame10Winner, 'game10', 'Game 10', this) &&
+        validateGameSelection(this.state.selectedGame11Winner, 'game11', 'Game 11', this) &&
+        validateGameSelection(this.state.selectedGame12Winner, 'game12', 'Game 12', this) &&
+        validateGameSelection(this.state.selectedGame13Winner, 'game13', 'Game 13', this) &&
+        validateGameSelection(this.state.selectedGame14Winner, 'game14', 'Game 14', this) &&
+        validateGameSelection(this.state.selectedGame15Winner, 'game15', 'Game 15', this) &&
+        validateGameSelection(this.state.selectedGame16Winner, 'game16', 'Game 16', this) &&
+        validateGameSelection(this.state.selectedGame17Winner, 'game17', 'Game 17', this) &&
+        validateGameSelection(this.state.selectedGame18Winner, 'game18', 'Game 18', this) &&
+        validateGameSelection(this.state.selectedGame19Winner, 'game19', 'Game 19', this) &&
+        validateGameSelection(this.state.selectedGame20Winner, 'game20', 'Game 20', this) &&
+        validateGameSelection(this.state.selectedGame21Winner, 'game21', 'Game 21', this) &&
+        validateGameSelection(this.state.selectedGame22Winner, 'game22', 'Game 22', this) &&
+        validateGameSelection(this.state.selectedGame23Winner, 'game23', 'Game 23', this) &&
+        validateGameSelection(this.state.selectedGame24Winner, 'game24', 'Game 24', this) &&
+        validateGameSelection(this.state.selectedGame25Winner, 'game25', 'Game 25', this) &&
+        validateGameSelection(this.state.selectedGame26Winner, 'game26', 'Game 26', this) &&
+        validateGameSelection(this.state.selectedGame27Winner, 'game27', 'Game 27', this) &&
+        validateGameSelection(this.state.selectedGame28Winner, 'game28', 'Game 28', this) &&
+        validateGameSelection(this.state.selectedGame29Winner, 'game29', 'Game 29', this) &&
+        validateGameSelection(this.state.selectedGame30Winner, 'game30', 'Game 30', this) &&
+        validateGameSelection(this.state.selectedGame31Winner, 'game31', 'Game 31', this) &&
+        validateGameSelection(this.state.selectedGame32Winner, 'game32', 'Game 32', this) &&
+        validateGameSelection(this.state.selectedGame33Winner, 'game33', 'Game 33', this) &&
+        validateGameSelection(this.state.selectedGame34Winner, 'game34', 'Game 34', this) &&
+        validateGameSelection(this.state.selectedGame35Winner, 'game35', 'Game 35', this) &&
+        validateGameSelection(this.state.selectedGame36Winner, 'game36', 'Game 36', this) &&
+        validateGameSelection(this.state.selectedGame37Winner, 'game37', 'Game 37', this) &&
+        validateGameSelection(this.state.selectedGame38Winner, 'game38', 'Game 38', this) &&
+        validateGameSelection(this.state.selectedGame39Winner, 'game39', 'Game 39', this) &&
+        validateGameSelection(this.state.selectedGame40Winner, 'game40', 'Game 40', this) &&
+        validateGameSelection(this.state.selectedGame41Winner, 'game41', 'Game 41', this) &&
+        validateGameSelection(this.state.selectedGame42Winner, 'game42', 'Game 42', this) &&
+        validateGameSelection(this.state.selectedGame43Winner, 'game43', 'Game 43', this) &&
+        validateGameSelection(this.state.selectedGame44Winner, 'game44', 'Game 44', this) &&
+        validateGameSelection(this.state.selectedGame45Winner, 'game45', 'Game 45', this) &&
+        validateGameSelection(this.state.selectedGame46Winner, 'game46', 'Game 46', this) &&
+        validateGameSelection(this.state.selectedGame47Winner, 'game47', 'Game 47', this) &&
+        validateGameSelection(this.state.selectedGame48Winner, 'game48', 'Game 48', this) &&
+        validateGameSelection(this.state.selectedGame49Winner, 'game49', 'Game 49', this) &&
+        validateGameSelection(this.state.selectedGame50Winner, 'game50', 'Game 50', this) &&
+        validateGameSelection(this.state.selectedGame51Winner, 'game51', 'Game 51', this) &&
+        validateGameSelection(this.state.selectedGame52Winner, 'game52', 'Game 52', this) &&
+        validateGameSelection(this.state.selectedGame53Winner, 'game53', 'Game 53', this) &&
+        validateGameSelection(this.state.selectedGame54Winner, 'game54', 'Game 54', this) &&
+        validateGameSelection(this.state.selectedGame55Winner, 'game55', 'Game 55', this) &&
+        validateGameSelection(this.state.selectedGame56Winner, 'game56', 'Game 56', this) &&
+        validateGameSelection(this.state.selectedGame57Winner, 'game57', 'Game 57', this) &&
+        validateGameSelection(this.state.selectedGame58Winner, 'game58', 'Game 58', this) &&
+        validateGameSelection(this.state.selectedGame59Winner, 'game59', 'Game 59', this) &&
+        validateGameSelection(this.state.selectedGame60Winner, 'game60', 'Game 60', this) &&
+        validateGameSelection(this.state.selectedGame61Winner, 'game61', 'Game 61', this) &&
+        validateGameSelection(this.state.selectedGame62Winner, 'game62', 'Game 62', this) &&
+        validateGameSelection(this.state.selectedGame63Winner, 'game63', 'Game 63', this)
       ) {
       let formPayload = {
         user_id:  parseInt(`${window.currentUser.id}`),
