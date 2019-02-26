@@ -5,6 +5,9 @@ import Bracket from '../components/Bracket';
 import BracketFinalFour from '../components/BracketFinalFour';
 import BracketWinner from '../components/BracketWinner';
 import BracketName from '../components/BracketName';
+import { validateBracketNameNotBlank,
+         validateBracketNameNoDuplicate,
+         validateGameSelection } from '../lib/validators';
 
 class BracketForm extends React.Component {
   constructor(props) {
@@ -91,7 +94,9 @@ class BracketForm extends React.Component {
         selectedGame63Winner: '',
         selectedGame64Winner: '',
         newBracketName: '',
-        bracketScore: 0
+        bracketNames: [],
+        bracketScore: 0,
+        errors: {}
       };
       this.handleGame1Selection = this.handleGame1Selection.bind(this);
       this.handleGame2Selection = this.handleGame2Selection.bind(this);
@@ -417,11 +422,80 @@ class BracketForm extends React.Component {
     }
 
     handleNewBracketName(event) {
+      validateBracketNameNotBlank(this.state.newBracketName, this)
+      validateBracketNameNoDuplicate(this.state.newBracketName, this.state.bracketNames, this)
       this.setState({ newBracketName: event.target.value })
     }
 
     handleFormSubmit(event) {
       event.preventDefault();
+      if (
+        validateBracketNameNotBlank(this.state.newBracketName, this) &&
+        validateBracketNameNoDuplicate(this.state.newBracketName, this.state.bracketNames, this) &&
+        validateGameSelection(this.state.selectedGame1Winner, 'game1', 'Game 1', this) &&
+        validateGameSelection(this.state.selectedGame2Winner, 'game2', 'Game 2', this) &&
+        validateGameSelection(this.state.selectedGame3Winner, 'game3', 'Game 3', this) &&
+        validateGameSelection(this.state.selectedGame4Winner, 'game4', 'Game 4', this) &&
+        validateGameSelection(this.state.selectedGame5Winner, 'game5', 'Game 5', this) &&
+        validateGameSelection(this.state.selectedGame6Winner, 'game6', 'Game 6', this) &&
+        validateGameSelection(this.state.selectedGame7Winner, 'game7', 'Game 7', this) &&
+        validateGameSelection(this.state.selectedGame8Winner, 'game8', 'Game 8', this) &&
+        validateGameSelection(this.state.selectedGame9Winner, 'game9', 'Game 9', this) &&
+        validateGameSelection(this.state.selectedGame10Winner, 'game10', 'Game 10', this) &&
+        validateGameSelection(this.state.selectedGame11Winner, 'game11', 'Game 11', this) &&
+        validateGameSelection(this.state.selectedGame12Winner, 'game12', 'Game 12', this) &&
+        validateGameSelection(this.state.selectedGame13Winner, 'game13', 'Game 13', this) &&
+        validateGameSelection(this.state.selectedGame14Winner, 'game14', 'Game 14', this) &&
+        validateGameSelection(this.state.selectedGame15Winner, 'game15', 'Game 15', this) &&
+        validateGameSelection(this.state.selectedGame16Winner, 'game16', 'Game 16', this) &&
+        validateGameSelection(this.state.selectedGame17Winner, 'game17', 'Game 17', this) &&
+        validateGameSelection(this.state.selectedGame18Winner, 'game18', 'Game 18', this) &&
+        validateGameSelection(this.state.selectedGame19Winner, 'game19', 'Game 19', this) &&
+        validateGameSelection(this.state.selectedGame20Winner, 'game20', 'Game 20', this) &&
+        validateGameSelection(this.state.selectedGame21Winner, 'game21', 'Game 21', this) &&
+        validateGameSelection(this.state.selectedGame22Winner, 'game22', 'Game 22', this) &&
+        validateGameSelection(this.state.selectedGame23Winner, 'game23', 'Game 23', this) &&
+        validateGameSelection(this.state.selectedGame24Winner, 'game24', 'Game 24', this) &&
+        validateGameSelection(this.state.selectedGame25Winner, 'game25', 'Game 25', this) &&
+        validateGameSelection(this.state.selectedGame26Winner, 'game26', 'Game 26', this) &&
+        validateGameSelection(this.state.selectedGame27Winner, 'game27', 'Game 27', this) &&
+        validateGameSelection(this.state.selectedGame28Winner, 'game28', 'Game 28', this) &&
+        validateGameSelection(this.state.selectedGame29Winner, 'game29', 'Game 29', this) &&
+        validateGameSelection(this.state.selectedGame30Winner, 'game30', 'Game 30', this) &&
+        validateGameSelection(this.state.selectedGame31Winner, 'game31', 'Game 31', this) &&
+        validateGameSelection(this.state.selectedGame32Winner, 'game32', 'Game 32', this) &&
+        validateGameSelection(this.state.selectedGame33Winner, 'game33', 'Game 33', this) &&
+        validateGameSelection(this.state.selectedGame34Winner, 'game34', 'Game 34', this) &&
+        validateGameSelection(this.state.selectedGame35Winner, 'game35', 'Game 35', this) &&
+        validateGameSelection(this.state.selectedGame36Winner, 'game36', 'Game 36', this) &&
+        validateGameSelection(this.state.selectedGame37Winner, 'game37', 'Game 37', this) &&
+        validateGameSelection(this.state.selectedGame38Winner, 'game38', 'Game 38', this) &&
+        validateGameSelection(this.state.selectedGame39Winner, 'game39', 'Game 39', this) &&
+        validateGameSelection(this.state.selectedGame40Winner, 'game40', 'Game 40', this) &&
+        validateGameSelection(this.state.selectedGame41Winner, 'game41', 'Game 41', this) &&
+        validateGameSelection(this.state.selectedGame42Winner, 'game42', 'Game 42', this) &&
+        validateGameSelection(this.state.selectedGame43Winner, 'game43', 'Game 43', this) &&
+        validateGameSelection(this.state.selectedGame44Winner, 'game44', 'Game 44', this) &&
+        validateGameSelection(this.state.selectedGame45Winner, 'game45', 'Game 45', this) &&
+        validateGameSelection(this.state.selectedGame46Winner, 'game46', 'Game 46', this) &&
+        validateGameSelection(this.state.selectedGame47Winner, 'game47', 'Game 47', this) &&
+        validateGameSelection(this.state.selectedGame48Winner, 'game48', 'Game 48', this) &&
+        validateGameSelection(this.state.selectedGame49Winner, 'game49', 'Game 49', this) &&
+        validateGameSelection(this.state.selectedGame50Winner, 'game50', 'Game 50', this) &&
+        validateGameSelection(this.state.selectedGame51Winner, 'game51', 'Game 51', this) &&
+        validateGameSelection(this.state.selectedGame52Winner, 'game52', 'Game 52', this) &&
+        validateGameSelection(this.state.selectedGame53Winner, 'game53', 'Game 53', this) &&
+        validateGameSelection(this.state.selectedGame54Winner, 'game54', 'Game 54', this) &&
+        validateGameSelection(this.state.selectedGame55Winner, 'game55', 'Game 55', this) &&
+        validateGameSelection(this.state.selectedGame56Winner, 'game56', 'Game 56', this) &&
+        validateGameSelection(this.state.selectedGame57Winner, 'game57', 'Game 57', this) &&
+        validateGameSelection(this.state.selectedGame58Winner, 'game58', 'Game 58', this) &&
+        validateGameSelection(this.state.selectedGame59Winner, 'game59', 'Game 59', this) &&
+        validateGameSelection(this.state.selectedGame60Winner, 'game60', 'Game 60', this) &&
+        validateGameSelection(this.state.selectedGame61Winner, 'game61', 'Game 61', this) &&
+        validateGameSelection(this.state.selectedGame62Winner, 'game62', 'Game 62', this) &&
+        validateGameSelection(this.state.selectedGame63Winner, 'game63', 'Game 63', this)
+      ) {
       let formPayload = {
         user_id:  parseInt(`${window.currentUser.id}`),
         name: this.state.newBracketName,
@@ -504,9 +578,31 @@ class BracketForm extends React.Component {
           browserHistory.push(`/users/${window.currentUser.id}`)
         })
         .catch(error => console.error(`Error in fetch: ${error.messaage}`));
+      }
     }
 
     componentDidMount(){
+
+      fetch(`/api/v1/users/${window.currentUser.id}/brackets`)
+      .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`;
+              error = new Error(errorMessage);
+            throw(error);
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+        let holder = [];
+        body.forEach((bracket) => {
+          holder.push(bracket.name)
+        })
+        this.setState({ bracketNames: holder })
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`))
+
       fetch('/api/v1/teams')
       .then(response => {
         if (response.ok) {
@@ -587,34 +683,28 @@ class BracketForm extends React.Component {
         });
       })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
-
-    // fetch('/api/v1/users')
-    //   .then(response => {
-    //     if (response.ok) {
-    //       return response;
-    //     } else {
-    //       let errorMessage = `${response.status} (${response.statusText})`
-    //           erorr = new Error(errorMessage);
-    //       throw(error);
-    //     }
-    //   })
-    //   .then(response => response.json())
-    //   .then(body => {
-    //     this.setState({
-    //       currentUserId: body.id,
-    //       currentUserName: body.user_name
-    //     });
-    //   })
-    //   .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
 
   render () {
     // console.log(`bracket name: ${this.state.newBracketName}`)
     // console.log(`game 1 winner is: ${this.state.selectedGame1Winner}`)
     // console.log(`game 63 winner is ${this.state.selectedGame63Winner}`)
+
+    let errorDiv;
+    let errorItems;
+
+    if(Object.keys(this.state.errors).length >0) {
+      errorItems = Object.values(this.state.errors).map(error => {
+        return(<li key={error}>{error}</li>)
+      })
+      errorDiv = <div className='error'>{errorItems}</div>
+    }
+
     return(
 
       <form onSubmit={this.handleFormSubmit}>
+
+        {errorDiv}
 
         <div>
 
@@ -635,7 +725,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team1}
                 awayTeam={this.state.team2}
-                name="game1"
+                name="Game-1"
                 round="round1"
                 region="south"
                 selectedGameWinner={this.state.selectedGame1Winner}
@@ -644,7 +734,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team3}
                 awayTeam={this.state.team4}
-                name="game2"
+                name="Game-2"
                 round="round1"
                 region="south"
                 selectedGameWinner={this.state.selectedGame2Winner}
@@ -653,7 +743,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team5}
                 awayTeam={this.state.team6}
-                name="game3"
+                name="Game-3"
                 round="round1"
                 region="south"
                 selectedGameWinner={this.state.selectedGame3Winner}
@@ -662,7 +752,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team7}
                 awayTeam={this.state.team8}
-                name="game4"
+                name="Game-4"
                 round="round1"
                 region="south"
                 selectedGameWinner={this.state.selectedGame4Winner}
@@ -671,7 +761,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team9}
                 awayTeam={this.state.team10}
-                name="game5"
+                name="Game-5"
                 round="round1"
                 region="south"
                 selectedGameWinner={this.state.selectedGame5Winner}
@@ -680,7 +770,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team11}
                 awayTeam={this.state.team12}
-                name="game6"
+                name="Game-6"
                 round="round1"
                 region="south"
                 selectedGameWinner={this.state.selectedGame6Winner}
@@ -689,7 +779,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team13}
                 awayTeam={this.state.team14}
-                name="game7"
+                name="Game-7"
                 round="round1"
                 region="south"
                 selectedGameWinner={this.state.selectedGame7Winner}
@@ -698,7 +788,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team15}
                 awayTeam={this.state.team16}
-                name="game8"
+                name="Game-8"
                 round="round1"
                 region="south"
                 selectedGameWinner={this.state.selectedGame8Winner}
@@ -709,7 +799,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame1Winner}
                 awayTeam={this.state.selectedGame2Winner}
-                name="game33"
+                name="Game-33"
                 round="round2"
                 region="south"
                 selectedGameWinner={this.state.selectedGame33Winner}
@@ -718,7 +808,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame3Winner}
                 awayTeam={this.state.selectedGame4Winner}
-                name="game34"
+                name="Game-34"
                 round="round2"
                 region="south"
                 selectedGameWinner={this.state.selectedGame34Winner}
@@ -727,7 +817,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame5Winner}
                 awayTeam={this.state.selectedGame6Winner}
-                name="game35"
+                name="Game-35"
                 round="round2"
                 region="south"
                 selectedGameWinner={this.state.selectedGame35Winner}
@@ -736,7 +826,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame7Winner}
                 awayTeam={this.state.selectedGame8Winner}
-                name="game36"
+                name="Game-36"
                 round="round2"
                 region="south"
                 selectedGameWinner={this.state.selectedGame36Winner}
@@ -747,7 +837,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame33Winner}
                 awayTeam={this.state.selectedGame34Winner}
-                name="game49"
+                name="Game-49"
                 round="round3"
                 region="south"
                 selectedGameWinner={this.state.selectedGame49Winner}
@@ -756,7 +846,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame35Winner}
                 awayTeam={this.state.selectedGame36Winner}
-                name="game50"
+                name="Game-50"
                 round="round3"
                 region="south"
                 selectedGameWinner={this.state.selectedGame50Winner}
@@ -767,7 +857,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame49Winner}
                 awayTeam={this.state.selectedGame50Winner}
-                name="game57"
+                name="Game-57"
                 round="round4"
                 region="south"
                 selectedGameWinner={this.state.selectedGame57Winner}
@@ -787,7 +877,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team17}
                 awayTeam={this.state.team18}
-                name="game9"
+                name="Game-9"
                 round="round1"
                 region="west"
                 selectedGameWinner={this.state.selectedGame9Winner}
@@ -796,7 +886,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team19}
                 awayTeam={this.state.team20}
-                name="game10"
+                name="Game-10"
                 round="round1"
                 region="west"
                 selectedGameWinner={this.state.selectedGame10Winner}
@@ -805,7 +895,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team21}
                 awayTeam={this.state.team22}
-                name="game11"
+                name="Game-11"
                 round="round1"
                 region="west"
                 selectedGameWinner={this.state.selectedGame11Winner}
@@ -814,7 +904,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team23}
                 awayTeam={this.state.team24}
-                name="game12"
+                name="Game-12"
                 round="round1"
                 region="west"
                 selectedGameWinner={this.state.selectedGame12Winner}
@@ -823,7 +913,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team25}
                 awayTeam={this.state.team26}
-                name="game13"
+                name="Game-13"
                 round="round1"
                 region="west"
                 selectedGameWinner={this.state.selectedGame13Winner}
@@ -832,7 +922,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team27}
                 awayTeam={this.state.team28}
-                name="game14"
+                name="Game-14"
                 round="round1"
                 region="west"
                 selectedGameWinner={this.state.selectedGame14Winner}
@@ -841,7 +931,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team29}
                 awayTeam={this.state.team30}
-                name="game15"
+                name="Game-15"
                 round="round1"
                 region="west"
                 selectedGameWinner={this.state.selectedGame15Winner}
@@ -850,7 +940,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team31}
                 awayTeam={this.state.team32}
-                name="game16"
+                name="Game-16"
                 round="round1"
                 region="west"
                 selectedGameWinner={this.state.selectedGame16Winner}
@@ -861,7 +951,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame9Winner}
                 awayTeam={this.state.selectedGame10Winner}
-                name="game37"
+                name="Game-37"
                 round="round2"
                 region="west"
                 selectedGameWinner={this.state.selectedGame37Winner}
@@ -870,7 +960,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame11Winner}
                 awayTeam={this.state.selectedGame12Winner}
-                name="game38"
+                name="Game-38"
                 round="round2"
                 region="west"
                 selectedGameWinner={this.state.selectedGame38Winner}
@@ -879,7 +969,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame13Winner}
                 awayTeam={this.state.selectedGame14Winner}
-                name="game39"
+                name="Game-39"
                 round="round2"
                 region="west"
                 selectedGameWinner={this.state.selectedGame39Winner}
@@ -888,7 +978,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame15Winner}
                 awayTeam={this.state.selectedGame16Winner}
-                name="game40"
+                name="Game-40"
                 round="round2"
                 region="west"
                 selectedGameWinner={this.state.selectedGame40Winner}
@@ -899,7 +989,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame37Winner}
                 awayTeam={this.state.selectedGame38Winner}
-                name="game51"
+                name="Game-51"
                 round="round3"
                 region="west"
                 selectedGameWinner={this.state.selectedGame51Winner}
@@ -908,7 +998,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame39Winner}
                 awayTeam={this.state.selectedGame40Winner}
-                name="game52"
+                name="Game-52"
                 round="round3"
                 region="west"
                 selectedGameWinner={this.state.selectedGame52Winner}
@@ -919,7 +1009,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame51Winner}
                 awayTeam={this.state.selectedGame52Winner}
-                name="game58"
+                name="Game-58"
                 round="round4"
                 region="west"
                 selectedGameWinner={this.state.selectedGame58Winner}
@@ -939,7 +1029,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team33}
                 awayTeam={this.state.team34}
-                name="game17"
+                name="Game-17"
                 round="round1"
                 region="east"
                 selectedGameWinner={this.state.selectedGame17Winner}
@@ -948,7 +1038,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team35}
                 awayTeam={this.state.team36}
-                name="game218"
+                name="Game-18"
                 round="round1"
                 region="east"
                 selectedGameWinner={this.state.selectedGame18Winner}
@@ -957,7 +1047,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team37}
                 awayTeam={this.state.team38}
-                name="game19"
+                name="Game-19"
                 round="round1"
                 region="east"
                 selectedGameWinner={this.state.selectedGame19Winner}
@@ -966,7 +1056,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team39}
                 awayTeam={this.state.team40}
-                name="game20"
+                name="Game-20"
                 round="round1"
                 region="east"
                 selectedGameWinner={this.state.selectedGame20Winner}
@@ -975,7 +1065,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team41}
                 awayTeam={this.state.team42}
-                name="game21"
+                name="Game-21"
                 round="round1"
                 region="east"
                 selectedGameWinner={this.state.selectedGame21Winner}
@@ -984,7 +1074,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team43}
                 awayTeam={this.state.team44}
-                name="game22"
+                name="Game-22"
                 round="round1"
                 region="east"
                 selectedGameWinner={this.state.selectedGame22Winner}
@@ -993,7 +1083,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team45}
                 awayTeam={this.state.team46}
-                name="game23"
+                name="Game-23"
                 round="round1"
                 region="east"
                 selectedGameWinner={this.state.selectedGame23Winner}
@@ -1002,7 +1092,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team47}
                 awayTeam={this.state.team48}
-                name="game24"
+                name="Game-24"
                 round="round1"
                 region="east"
                 selectedGameWinner={this.state.selectedGame24Winner}
@@ -1013,7 +1103,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame17Winner}
                 awayTeam={this.state.selectedGame18Winner}
-                name="game41"
+                name="Game-41"
                 round="round2"
                 region="east"
                 selectedGameWinner={this.state.selectedGame41Winner}
@@ -1022,7 +1112,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame19Winner}
                 awayTeam={this.state.selectedGame20Winner}
-                name="game42"
+                name="Game-42"
                 round="round2"
                 region="east"
                 selectedGameWinner={this.state.selectedGame42Winner}
@@ -1031,7 +1121,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame21Winner}
                 awayTeam={this.state.selectedGame22Winner}
-                name="game43"
+                name="Game-43"
                 round="round2"
                 region="east"
                 selectedGameWinner={this.state.selectedGame43Winner}
@@ -1040,7 +1130,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame23Winner}
                 awayTeam={this.state.selectedGame24Winner}
-                name="game44"
+                name="Game-44"
                 round="round2"
                 region="east"
                 selectedGameWinner={this.state.selectedGame44Winner}
@@ -1051,7 +1141,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame41Winner}
                 awayTeam={this.state.selectedGame42Winner}
-                name="game53"
+                name="Game-53"
                 round="round3"
                 region="east"
                 selectedGameWinner={this.state.selectedGame53Winner}
@@ -1060,7 +1150,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame43Winner}
                 awayTeam={this.state.selectedGame44Winner}
-                name="game54"
+                name="Game-54"
                 round="round3"
                 region="east"
                 selectedGameWinner={this.state.selectedGame54Winner}
@@ -1071,7 +1161,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame53Winner}
                 awayTeam={this.state.selectedGame54Winner}
-                name="game59"
+                name="Game-59"
                 round="round4"
                 region="east"
                 selectedGameWinner={this.state.selectedGame59Winner}
@@ -1091,7 +1181,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team49}
                 awayTeam={this.state.team50}
-                name="game25"
+                name="Game-25"
                 round="round1"
                 region="midwest"
                 selectedGameWinner={this.state.selectedGame25Winner}
@@ -1100,7 +1190,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team51}
                 awayTeam={this.state.team52}
-                name="game26"
+                name="Game-26"
                 round="round1"
                 region="midwest"
                 selectedGameWinner={this.state.selectedGame26Winner}
@@ -1109,7 +1199,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team53}
                 awayTeam={this.state.team54}
-                name="game27"
+                name="Game-27"
                 round="round1"
                 region="midwest"
                 selectedGameWinner={this.state.selectedGame27Winner}
@@ -1118,7 +1208,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team55}
                 awayTeam={this.state.team56}
-                name="game28"
+                name="Game-28"
                 round="round1"
                 region="midwest"
                 selectedGameWinner={this.state.selectedGame28Winner}
@@ -1127,7 +1217,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team57}
                 awayTeam={this.state.team58}
-                name="game29"
+                name="Game-29"
                 round="round1"
                 region="midwest"
                 selectedGameWinner={this.state.selectedGame29Winner}
@@ -1136,7 +1226,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team59}
                 awayTeam={this.state.team60}
-                name="game30"
+                name="Game-30"
                 round="round1"
                 region="midwest"
                 selectedGameWinner={this.state.selectedGame30Winner}
@@ -1145,7 +1235,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team61}
                 awayTeam={this.state.team62}
-                name="game31"
+                name="Game-31"
                 round="round1"
                 region="midwest"
                 selectedGameWinner={this.state.selectedGame31Winner}
@@ -1154,7 +1244,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.team63}
                 awayTeam={this.state.team64}
-                name="game32"
+                name="Game-32"
                 round="round1"
                 region="midwest"
                 selectedGameWinner={this.state.selectedGame32Winner}
@@ -1165,7 +1255,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame25Winner}
                 awayTeam={this.state.selectedGame26Winner}
-                name="game45"
+                name="Game-45"
                 round="round2"
                 region="midwest"
                 selectedGameWinner={this.state.selectedGame45Winner}
@@ -1174,7 +1264,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame27Winner}
                 awayTeam={this.state.selectedGame28Winner}
-                name="game46"
+                name="Game-46"
                 round="round2"
                 region="midwest"
                 selectedGameWinner={this.state.selectedGame46Winner}
@@ -1183,7 +1273,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame29Winner}
                 awayTeam={this.state.selectedGame30Winner}
-                name="game47"
+                name="Game-47"
                 round="round2"
                 region="midwest"
                 selectedGameWinner={this.state.selectedGame47Winner}
@@ -1192,7 +1282,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame31Winner}
                 awayTeam={this.state.selectedGame32Winner}
-                name="game48"
+                name="Game-48"
                 round="round2"
                 region="midwest"
                 selectedGameWinner={this.state.selectedGame48Winner}
@@ -1203,7 +1293,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame45Winner}
                 awayTeam={this.state.selectedGame46Winner}
-                name="game55"
+                name="Game-55"
                 round="round3"
                 region="midwest"
                 selectedGameWinner={this.state.selectedGame55Winner}
@@ -1212,7 +1302,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame47Winner}
                 awayTeam={this.state.selectedGame48Winner}
-                name="game56"
+                name="Game-56"
                 round="round3"
                 region="midwest"
                 selectedGameWinner={this.state.selectedGame56Winner}
@@ -1223,7 +1313,7 @@ class BracketForm extends React.Component {
               <Bracket
                 homeTeam={this.state.selectedGame55Winner}
                 awayTeam={this.state.selectedGame56Winner}
-                name="game60"
+                name="Game-60"
                 round="round4"
                 region="midwest"
                 selectedGameWinner={this.state.selectedGame60Winner}
@@ -1243,7 +1333,7 @@ class BracketForm extends React.Component {
               <BracketFinalFour
                 homeTeam={this.state.selectedGame57Winner}
                 awayTeam={this.state.selectedGame58Winner}
-                name="game61"
+                name="Game-61"
                 round="finalFour"
                 regionHome="south"
                 regionAway="west"
@@ -1253,7 +1343,7 @@ class BracketForm extends React.Component {
               <BracketFinalFour
                 homeTeam={this.state.selectedGame59Winner}
                 awayTeam={this.state.selectedGame60Winner}
-                name="game62"
+                name="Game-62"
                 round="finalFour"
                 regionHome="east"
                 regionAway="midwest"
@@ -1265,7 +1355,7 @@ class BracketForm extends React.Component {
               <BracketFinalFour
                 homeTeam={this.state.selectedGame61Winner}
                 awayTeam={this.state.selectedGame62Winner}
-                name="game63"
+                name="Game-63"
                 round="finals"
                 selectedGameWinner={this.state.selectedGame63Winner}
                 handleOptionChange={this.handleGame63Selection}
@@ -1280,6 +1370,7 @@ class BracketForm extends React.Component {
             </div>
           </div>
 
+          {errorDiv}
 
           <button className="bannerTitleStyleButton"
             type="submit"
