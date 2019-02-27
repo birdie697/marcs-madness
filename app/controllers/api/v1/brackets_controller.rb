@@ -27,6 +27,21 @@ class Api::V1::BracketsController < ApplicationController
 
   end
 
+  def destroy
+
+    bracket = Bracket.find(params[:id])
+
+    bracket.destroy
+
+    render json: {
+      bracket_id: bracket.id,
+      title: "SUCCESS!",
+      text: "Your bracket has been deleted",
+      type: "success"
+    }
+
+  end
+
   private
 
     def bracket_params
