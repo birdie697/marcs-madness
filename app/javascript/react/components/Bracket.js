@@ -4,8 +4,8 @@ const Bracket = props => {
 
   return(
     <div className={props.round}>
-      <div className={props.region}>
       <h6 className='gameNumber'>{props.name}</h6>
+      <div className={props.region}>
         <div className='teamBlock'>
           <label>
             <input

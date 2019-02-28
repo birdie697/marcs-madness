@@ -4,6 +4,7 @@ const BracketFinalFour = props => {
 
   return(
       <div className={props.round}>
+        <h6 className='gameNumber'>{props.name}</h6>
         <div className={props.regionHome}>
           <h4>{props.regionHome}</h4>
           <div className='teamBlock'>
