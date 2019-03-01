@@ -29,71 +29,70 @@ class BracketForm extends React.Component {
         team53: '', team54: '', team55: '', team56: '',
         team57: '', team58: '', team59: '', team60: '',
         team61: '', team62: '', team63: '', team64: '',
-        selectedGame1Winner: '',
-        selectedGame2Winner: '',
-        selectedGame3Winner: '',
-        selectedGame4Winner: '',
-        selectedGame5Winner: '',
-        selectedGame6Winner: '',
-        selectedGame7Winner: '',
-        selectedGame8Winner: '',
-        selectedGame9Winner: '',
-        selectedGame10Winner: '',
-        selectedGame11Winner: '',
-        selectedGame12Winner: '',
-        selectedGame13Winner: '',
-        selectedGame14Winner: '',
-        selectedGame15Winner: '',
-        selectedGame16Winner: '',
-        selectedGame17Winner: '',
-        selectedGame18Winner: '',
-        selectedGame19Winner: '',
-        selectedGame20Winner: '',
-        selectedGame21Winner: '',
-        selectedGame22Winner: '',
-        selectedGame23Winner: '',
-        selectedGame24Winner: '',
-        selectedGame25Winner: '',
-        selectedGame26Winner: '',
-        selectedGame27Winner: '',
-        selectedGame28Winner: '',
-        selectedGame29Winner: '',
-        selectedGame30Winner: '',
-        selectedGame31Winner: '',
-        selectedGame32Winner: '',
-        selectedGame33Winner: '',
-        selectedGame34Winner: '',
-        selectedGame35Winner: '',
-        selectedGame36Winner: '',
-        selectedGame37Winner: '',
-        selectedGame38Winner: '',
-        selectedGame39Winner: '',
-        selectedGame40Winner: '',
-        selectedGame41Winner: '',
-        selectedGame42Winner: '',
-        selectedGame43Winner: '',
-        selectedGame44Winner: '',
-        selectedGame45Winner: '',
-        selectedGame46Winner: '',
-        selectedGame47Winner: '',
-        selectedGame48Winner: '',
-        selectedGame49Winner: '',
-        selectedGame50Winner: '',
-        selectedGame51Winner: '',
-        selectedGame52Winner: '',
-        selectedGame53Winner: '',
-        selectedGame54Winner: '',
-        selectedGame55Winner: '',
-        selectedGame56Winner: '',
-        selectedGame57Winner: '',
-        selectedGame58Winner: '',
-        selectedGame59Winner: '',
-        selectedGame60Winner: '',
-        selectedGame61Winner: '',
-        selectedGame62Winner: '',
-        selectedGame63Winner: '',
-        selectedGame64Winner: '',
-        newBracketName: '',
+        selectedGame1Winner: this.props.selectedGame1Winner,
+        selectedGame2Winner: this.props.selectedGame2Winner,
+        selectedGame3Winner: this.props.selectedGame3Winner,
+        selectedGame4Winner: this.props.selectedGame4Winner,
+        selectedGame5Winner: this.props.selectedGame5Winner,
+        selectedGame6Winner: this.props.selectedGame6Winner,
+        selectedGame7Winner: this.props.selectedGame7Winner,
+        selectedGame8Winner: this.props.selectedGame8Winner,
+        selectedGame9Winner: this.props.selectedGame9Winner,
+        selectedGame10Winner: this.props.selectedGame10Winner,
+        selectedGame11Winner: this.props.selectedGame11Winner,
+        selectedGame12Winner: this.props.selectedGame12Winner,
+        selectedGame13Winner: this.props.selectedGame13Winner,
+        selectedGame14Winner: this.props.selectedGame14Winner,
+        selectedGame15Winner: this.props.selectedGame15Winner,
+        selectedGame16Winner: this.props.selectedGame16Winner,
+        selectedGame17Winner: this.props.selectedGame17Winner,
+        selectedGame18Winner: this.props.selectedGame18Winner,
+        selectedGame19Winner: this.props.selectedGame19Winner,
+        selectedGame20Winner: this.props.selectedGame20Winner,
+        selectedGame21Winner: this.props.selectedGame21Winner,
+        selectedGame22Winner: this.props.selectedGame22Winner,
+        selectedGame23Winner: this.props.selectedGame23Winner,
+        selectedGame24Winner: this.props.selectedGame24Winner,
+        selectedGame25Winner: this.props.selectedGame25Winner,
+        selectedGame26Winner: this.props.selectedGame26Winner,
+        selectedGame27Winner: this.props.selectedGame27Winner,
+        selectedGame28Winner: this.props.selectedGame28Winner,
+        selectedGame29Winner: this.props.selectedGame29Winner,
+        selectedGame30Winner: this.props.selectedGame30Winner,
+        selectedGame31Winner: this.props.selectedGame31Winner,
+        selectedGame32Winner: this.props.selectedGame32Winner,
+        selectedGame33Winner: this.props.selectedGame33Winner,
+        selectedGame34Winner: this.props.selectedGame34Winner,
+        selectedGame35Winner: this.props.selectedGame35Winner,
+        selectedGame36Winner: this.props.selectedGame36Winner,
+        selectedGame37Winner: this.props.selectedGame37Winner,
+        selectedGame38Winner: this.props.selectedGame38Winner,
+        selectedGame39Winner: this.props.selectedGame39Winner,
+        selectedGame40Winner: this.props.selectedGame40Winner,
+        selectedGame41Winner: this.props.selectedGame41Winner,
+        selectedGame42Winner: this.props.selectedGame42Winner,
+        selectedGame43Winner: this.props.selectedGame43Winner,
+        selectedGame44Winner: this.props.selectedGame44Winner,
+        selectedGame45Winner: this.props.selectedGame45Winner,
+        selectedGame46Winner: this.props.selectedGame46Winner,
+        selectedGame47Winner: this.props.selectedGame47Winner,
+        selectedGame48Winner: this.props.selectedGame48Winner,
+        selectedGame49Winner: this.props.selectedGame49Winner,
+        selectedGame50Winner: this.props.selectedGame50Winner,
+        selectedGame51Winner: this.props.selectedGame51Winner,
+        selectedGame52Winner: this.props.selectedGame52Winner,
+        selectedGame53Winner: this.props.selectedGame53Winner,
+        selectedGame54Winner: this.props.selectedGame54Winner,
+        selectedGame55Winner: this.props.selectedGame55Winner,
+        selectedGame56Winner: this.props.selectedGame56Winner,
+        selectedGame57Winner: this.props.selectedGame57Winner,
+        selectedGame58Winner: this.props.selectedGame58Winner,
+        selectedGame59Winner: this.props.selectedGame59Winner,
+        selectedGame60Winner: this.props.selectedGame60Winner,
+        selectedGame61Winner: this.props.selectedGame61Winner,
+        selectedGame62Winner: this.props.selectedGame62Winner,
+        selectedGame63Winner: this.props.selectedGame63Winner,
+        bracketName: '',
         bracketNames: [],
         bracketScore: 0,
         errors: {}
@@ -161,7 +160,7 @@ class BracketForm extends React.Component {
       this.handleGame61Selection = this.handleGame61Selection.bind(this);
       this.handleGame62Selection = this.handleGame62Selection.bind(this);
       this.handleGame63Selection = this.handleGame63Selection.bind(this);
-      this.handleNewBracketName = this.handleNewBracketName.bind(this);
+      this.handleBracketName = this.handleBracketName.bind(this);
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
 
@@ -421,17 +420,17 @@ class BracketForm extends React.Component {
       this.setState({ selectedGame63Winner: event.target.value })
     }
 
-    handleNewBracketName(event) {
-      validateBracketNameNotBlank(this.state.newBracketName, this)
-      validateBracketNameNoDuplicate(this.state.newBracketName, this.state.bracketNames, this)
-      this.setState({ newBracketName: event.target.value })
+    handleBracketName(event) {
+      validateBracketNameNotBlank(this.state.bracketName, this)
+      validateBracketNameNoDuplicate(this.state.bracketName, this.state.bracketNames, this)
+      this.setState({ bracketName: event.target.value })
     }
 
     handleFormSubmit(event) {
       event.preventDefault();
       if (
-        validateBracketNameNotBlank(this.state.newBracketName, this) &&
-        validateBracketNameNoDuplicate(this.state.newBracketName, this.state.bracketNames, this) &&
+        validateBracketNameNotBlank(this.state.bracketName, this) &&
+        validateBracketNameNoDuplicate(this.state.bracketName, this.state.bracketNames, this) &&
         validateGameSelection(this.state.selectedGame1Winner, 'game1', 'Game 1', this) &&
         validateGameSelection(this.state.selectedGame2Winner, 'game2', 'Game 2', this) &&
         validateGameSelection(this.state.selectedGame3Winner, 'game3', 'Game 3', this) &&
@@ -498,7 +497,7 @@ class BracketForm extends React.Component {
       ) {
       let formPayload = {
         user_id:  parseInt(`${window.currentUser.id}`),
-        name: this.state.newBracketName,
+        name: this.state.bracketName,
         game_1_winner: this.state.selectedGame1Winner,
         game_2_winner: this.state.selectedGame2Winner,
         game_3_winner: this.state.selectedGame3Winner,
@@ -683,7 +682,7 @@ class BracketForm extends React.Component {
         });
       })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
-    }
+  }
 
   render () {
     // console.log(`bracket name: ${this.state.newBracketName}`)
@@ -709,8 +708,8 @@ class BracketForm extends React.Component {
         <div>
 
           <BracketName
-            newBracketName={this.state.newBracketName}
-            handleNewBracketName={this.handleNewBracketName}
+            bracketName={this.state.bracketName}
+            handleBracketName={this.handleBracketName}
             bracketScore={this.state.bracketScore}
           />
 

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show] do
-    resources :brackets, only: [:new]
+    resources :brackets, only: [:new, :edit]
   end
 
   get '*path', to: 'users#show'

@@ -5,7 +5,10 @@ const BracketTile = props => {
     <div>
       <li className='listItemMargins'>
         {props.name}
-        <a className='editLink listItemMargins'>
+        <a
+          className='editLink listItemMargins'
+          href={`/users/${window.currentUser.id}/brackets/${props.id}/edit`}
+          >
           <i className="fas fa-edit"></i>
         </a>
         <a className='deleteLink listItemMargins'>
