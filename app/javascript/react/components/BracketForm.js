@@ -29,72 +29,73 @@ class BracketForm extends React.Component {
         team53: '', team54: '', team55: '', team56: '',
         team57: '', team58: '', team59: '', team60: '',
         team61: '', team62: '', team63: '', team64: '',
-        selectedGame1Winner: this.props.selectedGame1Winner,
-        selectedGame2Winner: this.props.selectedGame2Winner,
-        selectedGame3Winner: this.props.selectedGame3Winner,
-        selectedGame4Winner: this.props.selectedGame4Winner,
-        selectedGame5Winner: this.props.selectedGame5Winner,
-        selectedGame6Winner: this.props.selectedGame6Winner,
-        selectedGame7Winner: this.props.selectedGame7Winner,
-        selectedGame8Winner: this.props.selectedGame8Winner,
-        selectedGame9Winner: this.props.selectedGame9Winner,
-        selectedGame10Winner: this.props.selectedGame10Winner,
-        selectedGame11Winner: this.props.selectedGame11Winner,
-        selectedGame12Winner: this.props.selectedGame12Winner,
-        selectedGame13Winner: this.props.selectedGame13Winner,
-        selectedGame14Winner: this.props.selectedGame14Winner,
-        selectedGame15Winner: this.props.selectedGame15Winner,
-        selectedGame16Winner: this.props.selectedGame16Winner,
-        selectedGame17Winner: this.props.selectedGame17Winner,
-        selectedGame18Winner: this.props.selectedGame18Winner,
-        selectedGame19Winner: this.props.selectedGame19Winner,
-        selectedGame20Winner: this.props.selectedGame20Winner,
-        selectedGame21Winner: this.props.selectedGame21Winner,
-        selectedGame22Winner: this.props.selectedGame22Winner,
-        selectedGame23Winner: this.props.selectedGame23Winner,
-        selectedGame24Winner: this.props.selectedGame24Winner,
-        selectedGame25Winner: this.props.selectedGame25Winner,
-        selectedGame26Winner: this.props.selectedGame26Winner,
-        selectedGame27Winner: this.props.selectedGame27Winner,
-        selectedGame28Winner: this.props.selectedGame28Winner,
-        selectedGame29Winner: this.props.selectedGame29Winner,
-        selectedGame30Winner: this.props.selectedGame30Winner,
-        selectedGame31Winner: this.props.selectedGame31Winner,
-        selectedGame32Winner: this.props.selectedGame32Winner,
-        selectedGame33Winner: this.props.selectedGame33Winner,
-        selectedGame34Winner: this.props.selectedGame34Winner,
-        selectedGame35Winner: this.props.selectedGame35Winner,
-        selectedGame36Winner: this.props.selectedGame36Winner,
-        selectedGame37Winner: this.props.selectedGame37Winner,
-        selectedGame38Winner: this.props.selectedGame38Winner,
-        selectedGame39Winner: this.props.selectedGame39Winner,
-        selectedGame40Winner: this.props.selectedGame40Winner,
-        selectedGame41Winner: this.props.selectedGame41Winner,
-        selectedGame42Winner: this.props.selectedGame42Winner,
-        selectedGame43Winner: this.props.selectedGame43Winner,
-        selectedGame44Winner: this.props.selectedGame44Winner,
-        selectedGame45Winner: this.props.selectedGame45Winner,
-        selectedGame46Winner: this.props.selectedGame46Winner,
-        selectedGame47Winner: this.props.selectedGame47Winner,
-        selectedGame48Winner: this.props.selectedGame48Winner,
-        selectedGame49Winner: this.props.selectedGame49Winner,
-        selectedGame50Winner: this.props.selectedGame50Winner,
-        selectedGame51Winner: this.props.selectedGame51Winner,
-        selectedGame52Winner: this.props.selectedGame52Winner,
-        selectedGame53Winner: this.props.selectedGame53Winner,
-        selectedGame54Winner: this.props.selectedGame54Winner,
-        selectedGame55Winner: this.props.selectedGame55Winner,
-        selectedGame56Winner: this.props.selectedGame56Winner,
-        selectedGame57Winner: this.props.selectedGame57Winner,
-        selectedGame58Winner: this.props.selectedGame58Winner,
-        selectedGame59Winner: this.props.selectedGame59Winner,
-        selectedGame60Winner: this.props.selectedGame60Winner,
-        selectedGame61Winner: this.props.selectedGame61Winner,
-        selectedGame62Winner: this.props.selectedGame62Winner,
-        selectedGame63Winner: this.props.selectedGame63Winner,
+        selectedGame1Winner: '',
+        selectedGame2Winner: '',
+        selectedGame3Winner: '',
+        selectedGame4Winner: '',
+        selectedGame5Winner: '',
+        selectedGame6Winner: '',
+        selectedGame7Winner: '',
+        selectedGame8Winner: '',
+        selectedGame9Winner: '',
+        selectedGame10Winner: '',
+        selectedGame11Winner: '',
+        selectedGame12Winner: '',
+        selectedGame13Winner: '',
+        selectedGame14Winner: '',
+        selectedGame15Winner: '',
+        selectedGame16Winner: '',
+        selectedGame17Winner: '',
+        selectedGame18Winner: '',
+        selectedGame19Winner: '',
+        selectedGame20Winner: '',
+        selectedGame21Winner: '',
+        selectedGame22Winner: '',
+        selectedGame23Winner: '',
+        selectedGame24Winner: '',
+        selectedGame25Winner: '',
+        selectedGame26Winner: '',
+        selectedGame27Winner: '',
+        selectedGame28Winner: '',
+        selectedGame29Winner: '',
+        selectedGame30Winner: '',
+        selectedGame31Winner: '',
+        selectedGame32Winner: '',
+        selectedGame33Winner: '',
+        selectedGame34Winner: '',
+        selectedGame35Winner: '',
+        selectedGame36Winner: '',
+        selectedGame37Winner: '',
+        selectedGame38Winner: '',
+        selectedGame39Winner: '',
+        selectedGame40Winner: '',
+        selectedGame41Winner: '',
+        selectedGame42Winner: '',
+        selectedGame43Winner: '',
+        selectedGame44Winner: '',
+        selectedGame45Winner: '',
+        selectedGame46Winner: '',
+        selectedGame47Winner: '',
+        selectedGame48Winner: '',
+        selectedGame49Winner: '',
+        selectedGame50Winner: '',
+        selectedGame51Winner: '',
+        selectedGame52Winner: '',
+        selectedGame53Winner: '',
+        selectedGame54Winner: '',
+        selectedGame55Winner: '',
+        selectedGame56Winner: '',
+        selectedGame57Winner: '',
+        selectedGame58Winner: '',
+        selectedGame59Winner: '',
+        selectedGame60Winner: '',
+        selectedGame61Winner: '',
+        selectedGame62Winner: '',
+        selectedGame63Winner: '',
         bracketName: '',
         bracketNames: [],
         bracketScore: 0,
+        formType: props.formType,
         errors: {}
       };
       this.handleGame1Selection = this.handleGame1Selection.bind(this);
@@ -430,7 +431,7 @@ class BracketForm extends React.Component {
       event.preventDefault();
       if (
         validateBracketNameNotBlank(this.state.bracketName, this) &&
-        validateBracketNameNoDuplicate(this.state.bracketName, this.state.bracketNames, this) &&
+        validateBracketNameNoDuplicate(this.state.bracketName, this.state.bracketNames, this.state.formType, this) &&
         validateGameSelection(this.state.selectedGame1Winner, 'game1', 'Game 1', this) &&
         validateGameSelection(this.state.selectedGame2Winner, 'game2', 'Game 2', this) &&
         validateGameSelection(this.state.selectedGame3Winner, 'game3', 'Game 3', this) &&
@@ -563,6 +564,7 @@ class BracketForm extends React.Component {
         game_63_winner: this.state.selectedGame63Winner
       }
       let jsonPayload = JSON.stringify(formPayload);
+      // this needs to be either create or update
       fetch(`/api/v1/brackets`, {
         method: 'POST',
         body: jsonPayload,
@@ -577,6 +579,7 @@ class BracketForm extends React.Component {
           browserHistory.push(`/users/${window.currentUser.id}`)
         })
         .catch(error => console.error(`Error in fetch: ${error.messaage}`));
+        //  end of create or update
       }
     }
 
@@ -682,12 +685,96 @@ class BracketForm extends React.Component {
         });
       })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
+
+    let bracketId = this.props.bracketId
+
+    if (bracketId !== '') {
+
+      fetch(`/api/v1/users/${window.currentUser.id}/brackets/${bracketId}`)
+      .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`;
+              error = new Error(errorMessage);
+            throw(error);
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+        this.setState({
+          selectedGame1Winner: body.game_1_winner,
+          selectedGame2Winner: body.game_2_winner,
+          selectedGame3Winner: body.game_3_winner,
+          selectedGame4Winner: body.game_4_winner,
+          selectedGame5Winner: body.game_5_winner,
+          selectedGame6Winner: body.game_6_winner,
+          selectedGame7Winner: body.game_7_winner,
+          selectedGame8Winner: body.game_8_winner,
+          selectedGame9Winner: body.game_9_winner,
+          selectedGame10Winner: body.game_10_winner,
+          selectedGame11Winner: body.game_11_winner,
+          selectedGame12Winner: body.game_12_winner,
+          selectedGame13Winner: body.game_13_winner,
+          selectedGame14Winner: body.game_14_winner,
+          selectedGame15Winner: body.game_15_winner,
+          selectedGame16Winner: body.game_16_winner,
+          selectedGame17Winner: body.game_17_winner,
+          selectedGame18Winner: body.game_18_winner,
+          selectedGame19Winner: body.game_19_winner,
+          selectedGame20Winner: body.game_20_winner,
+          selectedGame21Winner: body.game_21_winner,
+          selectedGame22Winner: body.game_22_winner,
+          selectedGame23Winner: body.game_23_winner,
+          selectedGame24Winner: body.game_24_winner,
+          selectedGame25Winner: body.game_25_winner,
+          selectedGame26Winner: body.game_26_winner,
+          selectedGame27Winner: body.game_27_winner,
+          selectedGame28Winner: body.game_28_winner,
+          selectedGame29Winner: body.game_29_winner,
+          selectedGame30Winner: body.game_30_winner,
+          selectedGame31Winner: body.game_31_winner,
+          selectedGame32Winner: body.game_32_winner,
+          selectedGame33Winner: body.game_33_winner,
+          selectedGame34Winner: body.game_34_winner,
+          selectedGame35Winner: body.game_35_winner,
+          selectedGame36Winner: body.game_36_winner,
+          selectedGame37Winner: body.game_37_winner,
+          selectedGame38Winner: body.game_38_winner,
+          selectedGame39Winner: body.game_39_winner,
+          selectedGame40Winner: body.game_40_winner,
+          selectedGame41Winner: body.game_41_winner,
+          selectedGame42Winner: body.game_42_winner,
+          selectedGame43Winner: body.game_43_winner,
+          selectedGame44Winner: body.game_44_winner,
+          selectedGame45Winner: body.game_45_winner,
+          selectedGame46Winner: body.game_46_winner,
+          selectedGame47Winner: body.game_47_winner,
+          selectedGame48Winner: body.game_48_winner,
+          selectedGame49Winner: body.game_49_winner,
+          selectedGame50Winner: body.game_50_winner,
+          selectedGame51Winner: body.game_51_winner,
+          selectedGame52Winner: body.game_52_winner,
+          selectedGame53Winner: body.game_53_winner,
+          selectedGame54Winner: body.game_54_winner,
+          selectedGame55Winner: body.game_55_winner,
+          selectedGame56Winner: body.game_56_winner,
+          selectedGame57Winner: body.game_57_winner,
+          selectedGame58Winner: body.game_58_winner,
+          selectedGame59Winner: body.game_59_winner,
+          selectedGame60Winner: body.game_60_winner,
+          selectedGame61Winner: body.game_61_winner,
+          selectedGame62Winner: body.game_62_winner,
+          selectedGame63Winner: body.game_63_winner,
+          bracketName: body.name
+        })
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`))
+    }
+
   }
 
   render () {
-    // console.log(`bracket name: ${this.state.newBracketName}`)
-    // console.log(`game 1 winner is: ${this.state.selectedGame1Winner}`)
-    // console.log(`game 63 winner is ${this.state.selectedGame63Winner}`)
 
     let errorDiv;
     let errorItems;
@@ -700,6 +787,7 @@ class BracketForm extends React.Component {
     }
 
     return(
+
 
       <form onSubmit={this.handleFormSubmit}>
 

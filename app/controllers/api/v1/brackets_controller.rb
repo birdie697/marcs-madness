@@ -5,7 +5,13 @@ class Api::V1::BracketsController < ApplicationController
     render json: user.brackets.order(created_at: :asc)
   end
 
+  def show
 
+    # binding.pry
+
+    bracket = Bracket.find(params[:id])
+    render json: bracket
+  end
 
   def create
 
