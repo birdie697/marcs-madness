@@ -12,7 +12,7 @@ const BracketName = props => {
             type='text'
             name="name"
             value={props.bracketName}
-            onChange={props.handleNewBracketName}
+            onChange={props.handleBracketName}
           />
       </div>
       <div className="small-6 columns">

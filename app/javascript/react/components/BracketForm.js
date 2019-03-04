@@ -92,9 +92,8 @@ class BracketForm extends React.Component {
         selectedGame61Winner: '',
         selectedGame62Winner: '',
         selectedGame63Winner: '',
-        selectedGame64Winner: '',
-        newBracketName: '',
-        bracketNames: [],
+        bracketName: '',
+        bracketNames: {},
         bracketScore: 0,
         errors: {}
       };
@@ -161,7 +160,7 @@ class BracketForm extends React.Component {
       this.handleGame61Selection = this.handleGame61Selection.bind(this);
       this.handleGame62Selection = this.handleGame62Selection.bind(this);
       this.handleGame63Selection = this.handleGame63Selection.bind(this);
-      this.handleNewBracketName = this.handleNewBracketName.bind(this);
+      this.handleBracketName = this.handleBracketName.bind(this);
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
 
@@ -421,17 +420,17 @@ class BracketForm extends React.Component {
       this.setState({ selectedGame63Winner: event.target.value })
     }
 
-    handleNewBracketName(event) {
-      validateBracketNameNotBlank(this.state.newBracketName, this)
-      validateBracketNameNoDuplicate(this.state.newBracketName, this.state.bracketNames, this)
-      this.setState({ newBracketName: event.target.value })
+    handleBracketName(event) {
+      validateBracketNameNotBlank(this.state.bracketName, this)
+      validateBracketNameNoDuplicate(this.state.bracketName, this.state.bracketNames, this.props.backetId, this.props.formType, this)
+      this.setState({ bracketName: event.target.value })
     }
 
     handleFormSubmit(event) {
       event.preventDefault();
       if (
-        validateBracketNameNotBlank(this.state.newBracketName, this) &&
-        validateBracketNameNoDuplicate(this.state.newBracketName, this.state.bracketNames, this) &&
+        validateBracketNameNotBlank(this.state.bracketName, this) &&
+        validateBracketNameNoDuplicate(this.state.bracketName, this.state.bracketNames, this.props.bracketId, this.props.formType, this) &&
         validateGameSelection(this.state.selectedGame1Winner, 'game1', 'Game 1', this) &&
         validateGameSelection(this.state.selectedGame2Winner, 'game2', 'Game 2', this) &&
         validateGameSelection(this.state.selectedGame3Winner, 'game3', 'Game 3', this) &&
@@ -498,7 +497,7 @@ class BracketForm extends React.Component {
       ) {
       let formPayload = {
         user_id:  parseInt(`${window.currentUser.id}`),
-        name: this.state.newBracketName,
+        name: this.state.bracketName,
         game_1_winner: this.state.selectedGame1Winner,
         game_2_winner: this.state.selectedGame2Winner,
         game_3_winner: this.state.selectedGame3Winner,
@@ -564,20 +563,64 @@ class BracketForm extends React.Component {
         game_63_winner: this.state.selectedGame63Winner
       }
       let jsonPayload = JSON.stringify(formPayload);
-      fetch(`/api/v1/brackets`, {
-        method: 'POST',
-        body: jsonPayload,
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'},
-        credentials: 'same-origin'
-        })
-        .then(response => response.json())
-        .then(body => {
-          swal(body.title, body.text, body.type)
-          browserHistory.push(`/users/${window.currentUser.id}`)
-        })
-        .catch(error => console.error(`Error in fetch: ${error.messaage}`));
+      // this needs to be either create or update
+
+      if (this.props.formType === 'new') {
+
+        fetch(`/api/v1/brackets`, {
+          method: 'POST',
+          body: jsonPayload,
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'},
+          credentials: 'same-origin'
+          })
+          .then(response => {
+            if (response.ok) {
+              return response;
+            } else {
+              let errorMessage = `${response.status} (${response.statusText})`,
+                  error = new Error(errorMessage);
+              throw(error);
+            }
+          })
+          .then(response => response.json())
+          .then(body => {
+            swal(body.title, body.text, body.type)
+            browserHistory.push(`/users/${window.currentUser.id}`)
+          })
+          .catch(error => console.error(`Error in fetch: ${error.messaage}`));
+          //  end of create or update
+
+        } else {
+
+          let bracketId = this.props.bracketId
+          fetch(`/api/v1/brackets/${bracketId}`, {
+            method: 'PATCH',
+            body: jsonPayload,
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'},
+            credentials: 'same-origin'
+            })
+            .then(response => {
+              if (response.ok) {
+                return response;
+              } else {
+                let errorMessage = `${response.status} (${response.statusText})`,
+                    error = new Error(errorMessage);
+                throw(error);
+              }
+            })
+            .then(response => response.json())
+            .then(body => {
+              swal(body.title, body.text, body.type)
+              browserHistory.push(`/users/${window.currentUser.id}`)
+            })
+            .catch(error => console.error(`Error in fetch: ${error.messaage}`));
+            //  end of create or update
+
+        }
       }
     }
 
@@ -595,9 +638,10 @@ class BracketForm extends React.Component {
       })
       .then(response => response.json())
       .then(body => {
-        let holder = [];
+        let holder = {};
         body.forEach((bracket) => {
-          holder.push(bracket.name)
+          holder[bracket.id] = bracket.name
+          // holder.push(bracket.name)
         })
         this.setState({ bracketNames: holder })
       })
@@ -683,12 +727,96 @@ class BracketForm extends React.Component {
         });
       })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
+
+    let bracketId = this.props.bracketId
+
+    if (bracketId !== '') {
+
+      fetch(`/api/v1/users/${window.currentUser.id}/brackets/${bracketId}`)
+      .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`;
+              error = new Error(errorMessage);
+            throw(error);
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+        this.setState({
+          selectedGame1Winner: body.game_1_winner,
+          selectedGame2Winner: body.game_2_winner,
+          selectedGame3Winner: body.game_3_winner,
+          selectedGame4Winner: body.game_4_winner,
+          selectedGame5Winner: body.game_5_winner,
+          selectedGame6Winner: body.game_6_winner,
+          selectedGame7Winner: body.game_7_winner,
+          selectedGame8Winner: body.game_8_winner,
+          selectedGame9Winner: body.game_9_winner,
+          selectedGame10Winner: body.game_10_winner,
+          selectedGame11Winner: body.game_11_winner,
+          selectedGame12Winner: body.game_12_winner,
+          selectedGame13Winner: body.game_13_winner,
+          selectedGame14Winner: body.game_14_winner,
+          selectedGame15Winner: body.game_15_winner,
+          selectedGame16Winner: body.game_16_winner,
+          selectedGame17Winner: body.game_17_winner,
+          selectedGame18Winner: body.game_18_winner,
+          selectedGame19Winner: body.game_19_winner,
+          selectedGame20Winner: body.game_20_winner,
+          selectedGame21Winner: body.game_21_winner,
+          selectedGame22Winner: body.game_22_winner,
+          selectedGame23Winner: body.game_23_winner,
+          selectedGame24Winner: body.game_24_winner,
+          selectedGame25Winner: body.game_25_winner,
+          selectedGame26Winner: body.game_26_winner,
+          selectedGame27Winner: body.game_27_winner,
+          selectedGame28Winner: body.game_28_winner,
+          selectedGame29Winner: body.game_29_winner,
+          selectedGame30Winner: body.game_30_winner,
+          selectedGame31Winner: body.game_31_winner,
+          selectedGame32Winner: body.game_32_winner,
+          selectedGame33Winner: body.game_33_winner,
+          selectedGame34Winner: body.game_34_winner,
+          selectedGame35Winner: body.game_35_winner,
+          selectedGame36Winner: body.game_36_winner,
+          selectedGame37Winner: body.game_37_winner,
+          selectedGame38Winner: body.game_38_winner,
+          selectedGame39Winner: body.game_39_winner,
+          selectedGame40Winner: body.game_40_winner,
+          selectedGame41Winner: body.game_41_winner,
+          selectedGame42Winner: body.game_42_winner,
+          selectedGame43Winner: body.game_43_winner,
+          selectedGame44Winner: body.game_44_winner,
+          selectedGame45Winner: body.game_45_winner,
+          selectedGame46Winner: body.game_46_winner,
+          selectedGame47Winner: body.game_47_winner,
+          selectedGame48Winner: body.game_48_winner,
+          selectedGame49Winner: body.game_49_winner,
+          selectedGame50Winner: body.game_50_winner,
+          selectedGame51Winner: body.game_51_winner,
+          selectedGame52Winner: body.game_52_winner,
+          selectedGame53Winner: body.game_53_winner,
+          selectedGame54Winner: body.game_54_winner,
+          selectedGame55Winner: body.game_55_winner,
+          selectedGame56Winner: body.game_56_winner,
+          selectedGame57Winner: body.game_57_winner,
+          selectedGame58Winner: body.game_58_winner,
+          selectedGame59Winner: body.game_59_winner,
+          selectedGame60Winner: body.game_60_winner,
+          selectedGame61Winner: body.game_61_winner,
+          selectedGame62Winner: body.game_62_winner,
+          selectedGame63Winner: body.game_63_winner,
+          bracketName: body.name
+        })
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`))
     }
 
+  }
+
   render () {
-    // console.log(`bracket name: ${this.state.newBracketName}`)
-    // console.log(`game 1 winner is: ${this.state.selectedGame1Winner}`)
-    // console.log(`game 63 winner is ${this.state.selectedGame63Winner}`)
 
     let errorDiv;
     let errorItems;
@@ -702,6 +830,7 @@ class BracketForm extends React.Component {
 
     return(
 
+
       <form onSubmit={this.handleFormSubmit}>
 
         {errorDiv}
@@ -709,8 +838,8 @@ class BracketForm extends React.Component {
         <div>
 
           <BracketName
-            newBracketName={this.state.newBracketName}
-            handleNewBracketName={this.handleNewBracketName}
+            bracketName={this.state.bracketName}
+            handleBracketName={this.handleBracketName}
             bracketScore={this.state.bracketScore}
           />
 
