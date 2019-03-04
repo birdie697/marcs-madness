@@ -93,9 +93,8 @@ class BracketForm extends React.Component {
         selectedGame62Winner: '',
         selectedGame63Winner: '',
         bracketName: '',
-        bracketNames: [],
+        bracketNames: {},
         bracketScore: 0,
-        formType: props.formType,
         errors: {}
       };
       this.handleGame1Selection = this.handleGame1Selection.bind(this);
@@ -423,7 +422,7 @@ class BracketForm extends React.Component {
 
     handleBracketName(event) {
       validateBracketNameNotBlank(this.state.bracketName, this)
-      validateBracketNameNoDuplicate(this.state.bracketName, this.state.bracketNames, this)
+      validateBracketNameNoDuplicate(this.state.bracketName, this.state.bracketNames, this.props.backetId, this.props.formType, this)
       this.setState({ bracketName: event.target.value })
     }
 
@@ -431,7 +430,7 @@ class BracketForm extends React.Component {
       event.preventDefault();
       if (
         validateBracketNameNotBlank(this.state.bracketName, this) &&
-        validateBracketNameNoDuplicate(this.state.bracketName, this.state.bracketNames, this.state.formType, this) &&
+        validateBracketNameNoDuplicate(this.state.bracketName, this.state.bracketNames, this.props.bracketId, this.props.formType, this) &&
         validateGameSelection(this.state.selectedGame1Winner, 'game1', 'Game 1', this) &&
         validateGameSelection(this.state.selectedGame2Winner, 'game2', 'Game 2', this) &&
         validateGameSelection(this.state.selectedGame3Winner, 'game3', 'Game 3', this) &&
@@ -565,21 +564,63 @@ class BracketForm extends React.Component {
       }
       let jsonPayload = JSON.stringify(formPayload);
       // this needs to be either create or update
-      fetch(`/api/v1/brackets`, {
-        method: 'POST',
-        body: jsonPayload,
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'},
-        credentials: 'same-origin'
-        })
-        .then(response => response.json())
-        .then(body => {
-          swal(body.title, body.text, body.type)
-          browserHistory.push(`/users/${window.currentUser.id}`)
-        })
-        .catch(error => console.error(`Error in fetch: ${error.messaage}`));
-        //  end of create or update
+
+      if (this.props.formType === 'new') {
+
+        fetch(`/api/v1/brackets`, {
+          method: 'POST',
+          body: jsonPayload,
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'},
+          credentials: 'same-origin'
+          })
+          .then(response => {
+            if (response.ok) {
+              return response;
+            } else {
+              let errorMessage = `${response.status} (${response.statusText})`,
+                  error = new Error(errorMessage);
+              throw(error);
+            }
+          })
+          .then(response => response.json())
+          .then(body => {
+            swal(body.title, body.text, body.type)
+            browserHistory.push(`/users/${window.currentUser.id}`)
+          })
+          .catch(error => console.error(`Error in fetch: ${error.messaage}`));
+          //  end of create or update
+
+        } else {
+
+          let bracketId = this.props.bracketId
+          fetch(`/api/v1/brackets/${bracketId}`, {
+            method: 'PATCH',
+            body: jsonPayload,
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'},
+            credentials: 'same-origin'
+            })
+            .then(response => {
+              if (response.ok) {
+                return response;
+              } else {
+                let errorMessage = `${response.status} (${response.statusText})`,
+                    error = new Error(errorMessage);
+                throw(error);
+              }
+            })
+            .then(response => response.json())
+            .then(body => {
+              swal(body.title, body.text, body.type)
+              browserHistory.push(`/users/${window.currentUser.id}`)
+            })
+            .catch(error => console.error(`Error in fetch: ${error.messaage}`));
+            //  end of create or update
+
+        }
       }
     }
 
@@ -597,9 +638,10 @@ class BracketForm extends React.Component {
       })
       .then(response => response.json())
       .then(body => {
-        let holder = [];
+        let holder = {};
         body.forEach((bracket) => {
-          holder.push(bracket.name)
+          holder[bracket.id] = bracket.name
+          // holder.push(bracket.name)
         })
         this.setState({ bracketNames: holder })
       })

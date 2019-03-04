@@ -11,8 +11,14 @@ const validateBracketNameNotBlank = function(name, context) {
   }
 };
 
-const validateBracketNameNoDuplicate = function(name, names, context) {
-  if (names.includes(name.trim()) && name.trim() !== '') {
+const validateBracketNameNoDuplicate = function(name, names, bracketId, formType, context) {
+  if (Object.values(names).includes(name.trim()) && formType == 'edit' &&
+      Object.keys(names).find(key => names[key] === name) !== bracketId        ) {
+    //let findId =
+    let newError = { bracketNameDuplicated: 'Please no duplicate bracket names'};
+    context.setState({ errors: Object.assign({}, context.state.errors, newError) });
+    return false;
+  } else if (Object.values(names).includes(name.trim()) && formType === 'new') {
     let newError = { bracketNameDuplicated: 'Please no duplicate bracket names'};
     context.setState({ errors: Object.assign({}, context.state.errors, newError) });
     return false;

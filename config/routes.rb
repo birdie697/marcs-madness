@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :users, only: [:index] do
         resources :brackets, only: [:index, :show, :destroy]
       end
-      resources :brackets, only: [:index, :create]
+      resources :brackets, only: [:index, :create, :update]
     end
   end
 
