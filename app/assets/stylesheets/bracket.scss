@@ -10,6 +10,19 @@ input[type="radio"]{
   border:  2px solid;
 }
 
+.viewOnly {
+  background-color: #800000;  //Maroon
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 0%;
+  border:  2px solid #FFFFFF;
+}
+
+.viewOnly h4 {
+  font-family: 'Cinzel', serif;
+  color:  #FFFFFF;
+}
+
 .bannerTitle h1 {
   font-family: 'Cinzel', serif;
 }

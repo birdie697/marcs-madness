@@ -162,262 +162,404 @@ class BracketForm extends React.Component {
       this.handleGame63Selection = this.handleGame63Selection.bind(this);
       this.handleBracketName = this.handleBracketName.bind(this);
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
+      this.doNothing = this.doNothing.bind(this);
+    }
+
+    doNothing() {
+      swal({
+        title: "View Only",
+        text: "Please click the 'EDIT' icon to make changes",
+        icon: "warning",
+        dangerMode: true
+      })
+      .then(
+        browserHistory.push(`/users/${window.currentUser.id}`)
+      )
+
     }
 
     handleGame1Selection(event) {
-      this.setState({ selectedGame1Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame1Winner: event.target.value })
+      }
     }
 
     handleGame2Selection(event) {
-      this.setState({ selectedGame2Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame2Winner: event.target.value })
+      }
     }
 
     handleGame3Selection(event) {
-      this.setState({ selectedGame3Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame3Winner: event.target.value })
+      }
     }
 
     handleGame4Selection(event) {
-      this.setState({ selectedGame4Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame4Winner: event.target.value })
+      }
     }
 
     handleGame5Selection(event) {
-      this.setState({ selectedGame5Winner: event.target.value})
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame5Winner: event.target.value})
+      }
     }
 
     handleGame6Selection(event) {
-      this.setState({ selectedGame6Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame6Winner: event.target.value })
+      }
     }
 
     handleGame7Selection(event) {
-      this.setState({ selectedGame7Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame7Winner: event.target.value })
+      }
     }
 
     handleGame8Selection(event) {
-      this.setState({ selectedGame8Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame8Winner: event.target.value })
+      }
     }
 
     handleGame9Selection(event) {
-      this.setState({ selectedGame9Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame9Winner: event.target.value })
+      }
     }
 
     handleGame10Selection(event) {
-      this.setState({ selectedGame10Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame10Winner: event.target.value })
+      }
     }
 
     handleGame11Selection(event) {
-      this.setState({ selectedGame11Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame11Winner: event.target.value })
+      }
     }
 
     handleGame12Selection(event) {
-      this.setState({ selectedGame12Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame12Winner: event.target.value })
+      }
     }
 
     handleGame13Selection(event) {
-      this.setState({ selectedGame13Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame13Winner: event.target.value })
+      }
     }
 
     handleGame14Selection(event) {
-      this.setState({ selectedGame14Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame14Winner: event.target.value })
+      }
     }
 
     handleGame15Selection(event) {
-      this.setState({ selectedGame15Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame15Winner: event.target.value })
+      }
     }
 
     handleGame16Selection(event) {
-      this.setState({ selectedGame16Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame16Winner: event.target.value })
+      }
     }
 
     handleGame17Selection(event) {
-      this.setState({ selectedGame17Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame17Winner: event.target.value })
+      }
     }
 
     handleGame18Selection(event) {
-      this.setState({ selectedGame18Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame18Winner: event.target.value })
+      }
     }
 
     handleGame19Selection(event) {
-      this.setState({ selectedGame19Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame19Winner: event.target.value })
+      }
     }
 
     handleGame20Selection(event) {
-      this.setState({ selectedGame20Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame20Winner: event.target.value })
+      }
     }
 
     handleGame21Selection(event) {
-      this.setState({ selectedGame21Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame21Winner: event.target.value })
+      }
     }
 
     handleGame22Selection(event) {
-      this.setState({ selectedGame22Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame22Winner: event.target.value })
+      }
     }
 
     handleGame23Selection(event) {
-      this.setState({ selectedGame23Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame23Winner: event.target.value })
+      }
     }
 
     handleGame23Selection(event) {
-      this.setState({ selectedGame23Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame23Winner: event.target.value })
+      }
     }
 
     handleGame24Selection(event) {
-      this.setState({ selectedGame24Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame24Winner: event.target.value })
+      }
     }
 
     handleGame25Selection(event) {
-      this.setState({ selectedGame25Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame25Winner: event.target.value })
+      }
     }
 
     handleGame26Selection(event) {
-      this.setState({ selectedGame26Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame26Winner: event.target.value })
+      }
     }
 
     handleGame27Selection(event) {
-      this.setState({ selectedGame27Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame27Winner: event.target.value })
+      }
     }
 
     handleGame28Selection(event) {
-      this.setState({ selectedGame28Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame28Winner: event.target.value })
+      }
     }
 
     handleGame29Selection(event) {
-      this.setState({ selectedGame29Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame29Winner: event.target.value })
+      }
     }
 
     handleGame30Selection(event) {
-      this.setState({ selectedGame30Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame30Winner: event.target.value })
+      }
     }
 
     handleGame31Selection(event) {
-      this.setState({ selectedGame31Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame31Winner: event.target.value })
+      }
     }
 
     handleGame32Selection(event) {
-      this.setState({ selectedGame32Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame32Winner: event.target.value })
+      }
     }
 
     handleGame33Selection(event) {
-      this.setState({ selectedGame33Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame33Winner: event.target.value })
+      }
     }
 
     handleGame34Selection(event) {
-      this.setState({ selectedGame34Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame34Winner: event.target.value })
+      }
     }
 
     handleGame35Selection(event) {
-      this.setState({ selectedGame35Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame35Winner: event.target.value })
+      }
     }
 
     handleGame36Selection(event) {
-      this.setState({ selectedGame36Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame36Winner: event.target.value })
+      }
     }
 
     handleGame37Selection(event) {
-      this.setState({ selectedGame37Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame37Winner: event.target.value })
+      }
     }
 
     handleGame38Selection(event) {
-      this.setState({ selectedGame38Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame38Winner: event.target.value })
+      }
     }
 
     handleGame39Selection(event) {
-      this.setState({ selectedGame39Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame39Winner: event.target.value })
+      }
     }
 
     handleGame40Selection(event) {
-      this.setState({ selectedGame40Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame40Winner: event.target.value })
+      }
     }
 
     handleGame41Selection(event) {
-      this.setState({ selectedGame41Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame41Winner: event.target.value })
+      }
     }
 
     handleGame42Selection(event) {
-      this.setState({ selectedGame42Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame42Winner: event.target.value })
+      }
     }
 
     handleGame43Selection(event) {
-      this.setState({ selectedGame43Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame43Winner: event.target.value })
+      }
     }
 
     handleGame44Selection(event) {
-      this.setState({ selectedGame44Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame44Winner: event.target.value })
+      }
     }
 
     handleGame45Selection(event) {
-      this.setState({ selectedGame45Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame45Winner: event.target.value })
+      }
     }
 
     handleGame46Selection(event) {
-      this.setState({ selectedGame46Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame46Winner: event.target.value })
+      }
     }
 
     handleGame47Selection(event) {
-      this.setState({ selectedGame47Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame47Winner: event.target.value })
+      }
     }
 
     handleGame48Selection(event) {
-      this.setState({ selectedGame48Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame48Winner: event.target.value })
+      }
     }
 
     handleGame49Selection(event) {
-      this.setState({ selectedGame49Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame49Winner: event.target.value })
+      }
     }
 
     handleGame50Selection(event) {
-      this.setState({ selectedGame50Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame50Winner: event.target.value })
+      }
     }
 
     handleGame51Selection(event) {
-      this.setState({ selectedGame51Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame51Winner: event.target.value })
+      }
     }
 
     handleGame52Selection(event) {
-      this.setState({ selectedGame52Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame52Winner: event.target.value })
+      }
     }
 
     handleGame53Selection(event) {
-      this.setState({ selectedGame53Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame53Winner: event.target.value })
+      }
     }
 
     handleGame54Selection(event) {
-      this.setState({ selectedGame54Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame54Winner: event.target.value })
+      }
     }
 
     handleGame55Selection(event) {
-      this.setState({ selectedGame55Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame55Winner: event.target.value })
+      }
     }
 
     handleGame56Selection(event) {
-      this.setState({ selectedGame56Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame56Winner: event.target.value })
+      }
     }
 
     handleGame57Selection(event) {
-      this.setState({ selectedGame57Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame57Winner: event.target.value })
+      }
     }
 
     handleGame58Selection(event) {
-      this.setState({ selectedGame58Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame58Winner: event.target.value })
+      }
     }
 
     handleGame59Selection(event) {
-      this.setState({ selectedGame59Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame59Winner: event.target.value })
+      }
     }
 
     handleGame60Selection(event) {
-      this.setState({ selectedGame60Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame60Winner: event.target.value })
+      }
     }
 
     handleGame61Selection(event) {
-      this.setState({ selectedGame61Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame61Winner: event.target.value })
+      }
     }
 
     handleGame62Selection(event) {
-      this.setState({ selectedGame62Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame62Winner: event.target.value })
+      }
     }
 
     handleGame63Selection(event) {
-      this.setState({ selectedGame63Winner: event.target.value })
+      if (this.props.formType !== 'show') {
+        this.setState({ selectedGame63Winner: event.target.value })
+      }
     }
 
     handleBracketName(event) {
@@ -425,6 +567,8 @@ class BracketForm extends React.Component {
       validateBracketNameNoDuplicate(this.state.bracketName, this.state.bracketNames, this.props.backetId, this.props.formType, this)
       this.setState({ bracketName: event.target.value })
     }
+
+
 
     handleFormSubmit(event) {
       event.preventDefault();
@@ -828,10 +972,23 @@ class BracketForm extends React.Component {
       errorDiv = <div className='error'>{errorItems}</div>
     }
 
+    let howToHandle;
+    let buttonText;
+    let viewOnlyBanner;
+
+    if (this.props.formType === 'show') {
+      howToHandle = this.doNothing
+      buttonText = "View Only"
+      viewOnlyBanner = <div className='viewOnly'><h4>View Only</h4></div>
+    } else {
+      howToHandle = this.handleFormSubmit
+      buttonText = "Save Bracket"
+    }
+
+
     return(
 
-
-      <form onSubmit={this.handleFormSubmit}>
+      <form onSubmit={howToHandle}>
 
         {errorDiv}
 
@@ -846,6 +1003,9 @@ class BracketForm extends React.Component {
           <div className="row fullWidth">
             <div className="bannerTitle">
               <h1>SOUTH</h1>
+            </div>
+            <div>
+              <div>{viewOnlyBanner}</div>
             </div>
           </div>
 
@@ -999,6 +1159,9 @@ class BracketForm extends React.Component {
             <div className="bannerTitle">
               <h1>WEST</h1>
             </div>
+            <div>
+              <div>{viewOnlyBanner}</div>
+            </div>
           </div>
 
           <div className="row fullWidth">
@@ -1150,6 +1313,9 @@ class BracketForm extends React.Component {
           <div className="row fullWidth">
             <div className="bannerTitle">
               <h1>EAST</h1>
+            </div>
+            <div>
+              <div>{viewOnlyBanner}</div>
             </div>
           </div>
 
@@ -1303,6 +1469,9 @@ class BracketForm extends React.Component {
             <div className="bannerTitle">
               <h1>MIDWEST</h1>
             </div>
+            <div>
+              <div>{viewOnlyBanner}</div>
+            </div>
           </div>
 
           <div className="row fullWidth">
@@ -1455,6 +1624,9 @@ class BracketForm extends React.Component {
             <div className="bannerTitle">
               <h1>THE FINAL FOUR</h1>
             </div>
+            <div>
+              <div>{viewOnlyBanner}</div>
+            </div>
           </div>
 
           <div className="row fullWidth">
@@ -1505,7 +1677,7 @@ class BracketForm extends React.Component {
             type="submit"
             name="submit"
             value="Save New Bracket"
-            >Save New Bracket
+            >{buttonText}
           </button>
 
         </div>

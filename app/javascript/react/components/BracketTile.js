@@ -4,7 +4,9 @@ const BracketTile = props => {
   return(
     <div>
       <li className='listItemMargins'>
-        {props.name}
+        <a href={`/users/${window.currentUser.id}/brackets/${props.id}`}>
+          {props.name}
+        </a>
         <a
           className='editLink listItemMargins'
           href={`/users/${window.currentUser.id}/brackets/${props.id}/edit`}
