@@ -96,11 +96,18 @@ class BracketIndex extends React.Component {
     })
 
     return(
-      <div>
-        <ol>
+      <table>
+        <thead>
+          <tr>
+            <th>BRACKET</th>
+            <th className="iconPosition">EDIT</th>
+            <th className="iconPosition">DELETE</th>
+          </tr>
+        </thead>
+        <tbody>
           {brackets}
-        </ol>
-      </div>
+        </tbody>
+      </table>
     )
 
   }
