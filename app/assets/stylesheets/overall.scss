@@ -2,6 +2,18 @@ body {
   background-color: #CBCBCB;
 }
 
+table {
+  width: 100%;
+}
+
+.headerRow {
+  font-weight: 100;
+}
+
+.rowData:nth-child(even) {
+  background-color: #CBCBCB;
+}
+
 .fullWidth {
   width: 100%;
   margin-left: auto;
@@ -95,16 +107,16 @@ body {
   font-weight: 700;
 }
 
-.listItemMargins {
-  margin: 0px 10px
-}
-
 .editLink {
   color: #4582BF;  //link color
 }
 
 .deleteLink {
   color:  #DC143C //Crimson
+}
+
+.iconPosition {
+  text-align: center;
 }
 
 .error {
